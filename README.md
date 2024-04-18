@@ -1,5 +1,5 @@
-## Next.js App Router Course - Starter
+## YouDesign
 
-This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.
+YouDesign es una aplicación web fullstack construida con Next.js para apoyar en la gestión de decisiones de diseño de proyectos web y permitir el seguimiento de las pautas WCAG2 de la W3C para mejorar la accesibilidad, como proyecto para la asignatura de Sistemas Distribuidos en la Unidad Multidisciplinaria Tizimín ,Universidad Autónoma de Yucatán.
 
-For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
+Esta aplicación esta creada con cimientos de la plantilla para el Curso de Next.js App Route.
