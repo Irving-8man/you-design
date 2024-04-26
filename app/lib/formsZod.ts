@@ -12,3 +12,9 @@ export const formSchema = z.object({
   message: "Los passwords no son iguales.",
   path: ["confirmPassword"], // Esto enfoca el error en el campo confirmPassword
 });
+
+
+export const formLogin = z.object({
+  email: z.string().email({ message: "Invalido email." }),
+  password: z.string().min(1, "El campo de password no debe estar vacío.")
+});

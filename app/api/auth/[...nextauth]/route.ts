@@ -23,18 +23,18 @@ const authOptions = {
           })
 
           // 3 devolver resultado
-          if(!userEncontrado){
-            return null;
-          }
+          if(!userEncontrado) throw new Error('Usuario no encontrado') 
+      
           const validado = await verificarPassword(credentials.password,userEncontrado.password)
-          if(!validado) return null;
+          
+          if(!validado) throw new Error('Credenciales no validas') 
           return{
             id:userEncontrado.id,
             nombreUsuario: userEncontrado.nombreUsuario,
             email: userEncontrado.email
           }
         }else{
-          return null;
+          throw new Error('No llegaron credenciales') 
         }
       }
     })

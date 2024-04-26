@@ -8,6 +8,7 @@ import { Input } from '@/app/components/input';
 import { Card, CardContent } from '@/app/components/card';
 import { formSchema } from '@/app/lib/formsZod';
 import { useRouter } from 'next/navigation'
+import { useState } from 'react';
 import Header from '@/app/ui/layout/header-index';
 import Footer from '@/app/ui/layout/footer-index';
 
@@ -19,6 +20,11 @@ export default function Page() {
   const classMain__contentForm_cap = "flex flex-col nowrap justify-center gap-4";
   const classMain__title = "text-2xl font-bold";
   const classMain__form = 'w-[400px]';
+
+  //Estados de registro
+  const STATUS_REGISTRO = {
+
+  }
 
   //hooks
   const router = useRouter()
