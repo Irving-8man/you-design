@@ -12,9 +12,9 @@ datasource db {
 
 model usuario {
   id             Int      @id @default(autoincrement())
-  nombreUsuario  String
+  nombreUsuario  String   
   email          String   @unique
-  password       String   @unique
+  password       String   
   fechaCreacion  DateTime @default(now())
   fechaActualizada DateTime @updatedAt
 }

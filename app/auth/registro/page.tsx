@@ -6,7 +6,7 @@ import { Button } from '@/app/components/button';
 import { Form, FormControl, FormField, FormItem, FormLabel,FormMessage,} from '@/app/components/form';
 import { Input } from '@/app/components/input';
 import { Card, CardContent } from '@/app/components/card';
-import { formSchema } from '@/app/lib/zod';
+import { formSchema } from '@/app/lib/formsZod';
 import Header from '@/app/ui/layout/header-index';
 import Footer from '@/app/ui/layout/footer-index';
 
@@ -30,8 +30,20 @@ export default function Page() {
   });
 
   // 2. Define un submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const res = await fetch('/api/auth/register',{
+      method:'POST',
+      body:JSON.stringify({
+        nombreUsuario:values.nombreUsuario,
+        email:values.email,
+        password:values.password,
+      }),
+      headers:{
+        'Content-type':'aplication/json'
+      }
+    })
+    const resJson = await res.json()
+    console.log(resJson);
   }
 
   return (
@@ -56,7 +68,7 @@ export default function Page() {
                         <FormItem>
                           <FormLabel>Nombre de usuario</FormLabel>
                           <FormControl>
-                            <Input placeholder="Galleta" {...field} />
+                            <Input placeholder="Galletazo" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
