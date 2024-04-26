@@ -5,7 +5,7 @@ import {
   ExclamationCircleIcon,
 } from '@heroicons/react/24/outline';
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
-import { Button } from '../components/button-shadcn';
+import { Button } from '../components/button';
 
 export default function LoginForm() {
   return (

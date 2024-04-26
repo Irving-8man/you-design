@@ -8,7 +8,7 @@ import {
   UserCircleIcon,
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import { Button } from '@/app/components/button-shadcn';
+import { Button } from '@/app/components/button';
 
 export default function EditInvoiceForm({
   invoice,
