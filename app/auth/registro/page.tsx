@@ -3,12 +3,14 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { Button } from '@/app/components/button';
-import { Form, FormControl, FormField, FormItem, FormLabel,FormMessage,} from '@/app/components/form';
+import { Form, FormControl, FormField, FormItem, FormLabel,FormMessage,FormDescription,} from '@/app/components/form';
 import { Input } from '@/app/components/input';
 import { Card, CardContent } from '@/app/components/card';
 import { formSchema } from '@/app/lib/formsZod';
+import { useRouter } from 'next/navigation'
 import Header from '@/app/ui/layout/header-index';
 import Footer from '@/app/ui/layout/footer-index';
+
 
 export default function Page() {
   //Estilos
@@ -17,6 +19,9 @@ export default function Page() {
   const classMain__contentForm_cap = "flex flex-col nowrap justify-center gap-4";
   const classMain__title = "text-2xl font-bold";
   const classMain__form = 'w-[400px]';
+
+  //hooks
+  const router = useRouter()
 
   // 1. Define tu form.
   const form = useForm<z.infer<typeof formSchema>>({
@@ -42,8 +47,12 @@ export default function Page() {
         'Content-type':'aplication/json'
       }
     })
-    const resJson = await res.json()
-    console.log(resJson);
+
+    if(res.ok){
+        router.push('/auth/login')
+    }else{
+      console.log(res)
+    }
   }
 
   return (
@@ -70,6 +79,9 @@ export default function Page() {
                           <FormControl>
                             <Input placeholder="Galletazo" {...field} />
                           </FormControl>
+                          <FormDescription>
+                              Mínimo 8 caracteres.
+                          </FormDescription>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -106,6 +118,9 @@ export default function Page() {
                               {...field}
                             />
                           </FormControl>
+                          <FormDescription>
+                              Mínimo 8 caracteres.
+                          </FormDescription>
                           <FormMessage />
                         </FormItem>
                       )}

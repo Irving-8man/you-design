@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 export const formSchema = z.object({
   nombreUsuario: z.string().min(8, {
-    message: "Mínimo 8 caracteres.",
+    message: "Faltan caracteres.",
   }),
   email: z.string().email({ message: "Invalido email." }),
   password: z.string().min(8, {
