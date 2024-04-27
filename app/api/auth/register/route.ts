@@ -3,7 +3,6 @@ import db from "@/lib/db"
 import { hashPass } from '@/lib/bycript'
 import { usuarioAPISchema } from '@/lib/apisZod'
 
-
 export async function POST(request:Request){
   try {
     //1 Recuperar la data

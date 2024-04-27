@@ -1,35 +1,40 @@
-import {
-  UserGroupIcon,
-  HomeIcon,
-  DocumentDuplicateIcon,
-} from '@heroicons/react/24/outline';
+'use client'
 
-// Map of links to display in the side navigation.
-// Depending on the size of the application, this would be stored in a database.
+import {  HomeIcon,  Cog6ToothIcon, } from '@heroicons/react/24/outline';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { Button } from "@/app/components/button"
+
+
+
 const links = [
-  { name: 'Home', href: '/dashboard', icon: HomeIcon },
-  {
-    name: 'Invoices',
-    href: '/dashboard/invoices',
-    icon: DocumentDuplicateIcon,
-  },
-  { name: 'Customers', href: '/dashboard/customers', icon: UserGroupIcon },
+  { name: 'Todos los proyectos', href: '/dashboard', icon: HomeIcon },
+  { name: 'Ajustes', href: '/dashboard/cuenta',icon:Cog6ToothIcon,  }
 ];
 
 export default function NavLinks() {
+  //Estilos
+  
+  //hooks
+  const pathName = usePathname()
   return (
     <>
       {links.map((link) => {
         const LinkIcon = link.icon;
         return (
-          <a
-            key={link.name}
-            href={link.href}
-            className="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
-          >
-            <LinkIcon className="w-6" />
-            <p className="hidden md:block">{link.name}</p>
-          </a>
+          <Button asChild key={link.name} variant="link">
+            <Link
+                key={link.name}
+                href={link.href}
+                className={`flex h-[48px] grow items-center justify-center gap-2 rounded-md p-3 text-sm font-medium md:flex-none md:justify-start md:p-2 md:px-3
+                
+                ${pathName===link.href ? 'bg-accent hover:no-underline':''}`}
+              >
+                <LinkIcon className="w-6" />
+                <p className="hidden md:block">{link.name}</p>
+              </Link>
+          </Button>
+
         );
       })}
     </>
