@@ -27,7 +27,7 @@ export default function Page() {
           </p>
           <span>
             <Link
-              href="/dashboard"
+              href="/dashboard/proyectos"
               className={buttonVariants({ variant: 'default' })}
             >
               Comenzar <ArrowRightIcon className="w-5 md:w-6" />{' '}

@@ -8,8 +8,8 @@ import { Button } from "@/app/components/button"
 
 
 const links = [
-  { name: 'Todos los proyectos', href: '/dashboard', icon: HomeIcon },
-  { name: 'Ajustes', href: '/dashboard/cuenta',icon:Cog6ToothIcon,  }
+  { name: 'Todos los proyectos', href: '/dashboard/proyectos', icon: HomeIcon },
+  { name: 'Ajustes', href: '/dashboard/ajustes',icon:Cog6ToothIcon,  }
 ];
 
 export default function NavLinks() {

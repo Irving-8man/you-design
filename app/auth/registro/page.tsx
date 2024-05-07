@@ -11,16 +11,19 @@ import { useRouter } from 'next/navigation'
 import { useState } from 'react';
 import Header from '@/app/ui/layout/header-index';
 import Footer from '@/app/ui/layout/footer-index';
+import Link from 'next/link';
 
 
 export default function Page() {
   //Estilos
   const classMain = 'min-h-[100vh] flex flex-col justify-between py-15';
   const classMain__contentForm = 'flex flex-row justify-center mt-5 mb-20';
-  const classMain__contentForm_cap = "flex flex-col nowrap justify-center gap-4";
-  const classMain__title = "text-2xl font-bold";
+  const classMain__contentForm_sec = "flex flex-col nowrap justify-center gap-4";
   const classMain__form = 'w-[400px]';
-
+  const classMain__title = "text-2xl font-bold";
+  const classMain__form_contBut = 'flex flex-row items-end gap-[10px]';
+  const classMain__Exter = 'flex flex-row nowrap text-[15px] gap-[5px]';
+  const classMain__Link_Re = 'underline hover:no-underline';
   //Estados de registro
   const STATUS_REGISTRO = {
 
@@ -65,7 +68,7 @@ export default function Page() {
     <main className={classMain}>
       <Header />
       <div className={classMain__contentForm}>
-        <section className={classMain__contentForm_cap}>
+        <section className={classMain__contentForm_sec}>
           <h1 className={classMain__title}>Registrar</h1>
           <div className={classMain__form}>
             <Card className="py-5">
@@ -149,7 +152,13 @@ export default function Page() {
                         </FormItem>
                       )}
                     />
-                    <Button type="submit">Registrar</Button>
+                  <div className={classMain__form_contBut}>
+                      <Button type="submit">Registrar</Button>
+                      <div className={classMain__Exter}>
+                        <p>¿Ya tienes cuenta?</p>
+                        <Link href="/auth/login" className={classMain__Link_Re}>Iniciar sesión</Link>
+                      </div>
+                  </div>
                   </form>
                 </Form>
               </CardContent>

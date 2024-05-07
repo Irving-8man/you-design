@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
+
 export const formSchema = z.object({
   nombreUsuario: z.string().min(8, {
     message: "Faltan caracteres.",
@@ -18,3 +19,15 @@ export const formLogin = z.object({
   email: z.string().email({ message: "Invalido email." }),
   password: z.string().min(1, "El campo de password no debe estar vacío.")
 });
+
+
+export const formSchemaAjustes = z.object({
+  nombreUsuario: z.string().min(8, {
+    message: "Faltan caracteres.",
+  }),
+  email: z.string().email({ message: "Invalido email." }),
+  password: z.string().min(8, {
+    message: "Mínimo 8 caracteres.",
+  }),
+});
+

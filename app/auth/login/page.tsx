@@ -3,55 +3,63 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { Button } from '@/app/components/button';
-import { Form, FormControl, FormField, FormItem, FormLabel,FormMessage,} from '@/app/components/form';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/app/components/form';
 import { Input } from '@/app/components/input';
 import { Card, CardContent } from '@/app/components/card';
 import { formLogin } from '@/app/lib/formsZod';
 import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 import { useState } from 'react';
+import Link from 'next/link';
 import Header from '@/app/ui/layout/header-index';
 import Footer from '@/app/ui/layout/footer-index';
-
 
 export default function Page() {
   //Estilos
   const classMain = 'min-h-[100vh] flex flex-col justify-between py-15';
   const classMain__contentForm = 'flex flex-row justify-center mt-5 mb-20';
-  const classMain__contentForm_cap = "flex flex-col nowrap justify-center gap-4";
-  const classMain__title = "text-2xl font-bold";
+  const classMain__contentForm_cap = 'flex flex-col nowrap justify-center gap-4';
+  const classMain__title = 'text-2xl font-bold';
   const classMain__form = 'w-[400px]';
+  const classMain__form_contBut = 'flex flex-row items-end gap-[10px]';
+  const classMain__Exter = 'flex flex-row nowrap text-[15px] gap-[5px]';
+  const classMain__Link_Re = 'underline hover:no-underline';
 
   //Estados del formulario
-  const STATUS_LOGIN = {
-    
-  }
+  const STATUS_LOGIN = {};
 
   //hooks
-  const router = useRouter()
+  const router = useRouter();
 
   // 1. Define tu form.
   const form = useForm<z.infer<typeof formLogin>>({
     resolver: zodResolver(formLogin),
     defaultValues: {
       email: '',
-      password:''
+      password: '',
     },
   });
 
   // 2. Define un submit handler.
   async function onSubmit(values: z.infer<typeof formLogin>) {
-    const res = await signIn('credentials',{
-      email:values.email,
-      password:values.password,
-      redirect:false,
-    })
+    const res = await signIn('credentials', {
+      email: values.email,
+      password: values.password,
+      redirect: false,
+    });
 
-    if(res !== undefined){
-      if(res.ok){
-        router.push('/dashboard')
-      }else{
-        alert(res.error)
+    if (res !== undefined) {
+      if (res.ok) {
+        router.push('/dashboard');
+      } else {
+        alert(res.error);
       }
     }
   }
@@ -61,7 +69,7 @@ export default function Page() {
       <Header />
       <div className={classMain__contentForm}>
         <section className={classMain__contentForm_cap}>
-          <h1 className={classMain__title}>Ingresar</h1>
+          <h1 className={classMain__title}>Iniciar sesión</h1>
           <div className={classMain__form}>
             <Card className="py-5">
               <CardContent>
@@ -106,7 +114,13 @@ export default function Page() {
                         </FormItem>
                       )}
                     />
-                    <Button type="submit">Ingresar</Button>
+                    <div className={classMain__form_contBut}>
+                      <Button type="submit">Ingresar</Button>
+                      <div className={classMain__Exter}>
+                        <p>¿Aún no tienes cuenta?</p>
+                        <Link href="/auth/registro" className={classMain__Link_Re}>Regístrate</Link>
+                      </div>
+                    </div>
                   </form>
                 </Form>
               </CardContent>

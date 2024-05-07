@@ -7,10 +7,8 @@ export default async function Page() {
   //const session = await getServerSession()
 
   return (
-    <div>
-      <h1>Bienvenido Irving </h1>
-      <p>Correo geyler0502@outlook.com</p>
-      <p>hola</p>
+    <div className="px-6 pt-8">
+      
       <Footer/>
     </div>
   )
