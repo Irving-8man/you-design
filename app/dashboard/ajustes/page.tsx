@@ -27,7 +27,7 @@ export default function Page() {
   const classMain__Link_Re = 'underline hover:no-underline';
   const classTitle_form = 'font-bold text-[24px]';
   const classLabel = 'font-normal text-[16px]';
-  const classSubt_form = 'font-thin text-slate-400';
+  const classSubt_form = 'font-thin text-slate-500';
   const classMain__form_contBut =
     'flex flex-row justify-end items-end gap-[10px]';
 
@@ -133,7 +133,7 @@ export default function Page() {
       {/**Borrar cuenta */}
       <div className="my-[50px]">
         <div className={classMain__form}>
-          <Card className="py-3">
+          <Card className="py-3 border-red-400">
             <CardContent>
               <div className="mb-4">
                 <p className={classTitle_form}>Cuenta</p>

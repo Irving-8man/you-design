@@ -9,7 +9,7 @@ import { Button } from "@/app/components/button"
 
 const links = [
   { name: 'Todos los proyectos', href: '/dashboard/proyectos', icon: HomeIcon },
-  { name: 'Ajustes de perfil', href: '/dashboard/ajustes',icon:Cog6ToothIcon,  }
+  { name: 'Ajustes', href: '/dashboard/ajustes',icon:Cog6ToothIcon,  }
 ];
 
 export default function NavLinks() {
