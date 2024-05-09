@@ -1,22 +1,24 @@
 'use client'
-
-import {  HomeIcon,  Cog6ToothIcon, } from '@heroicons/react/24/outline';
+import {  HomeIcon, LanguageIcon,SwatchIcon,PuzzlePieceIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Button } from "@/app/components/button"
 
 
-
-const links = [
-  { name: 'Todos los proyectos', href: '/dashboard/proyectos', icon: HomeIcon },
-  { name: 'Ajustes', href: '/dashboard/ajustes',icon:Cog6ToothIcon,  }
-];
-
-export default function NavLinks() {
+export default function NavLinks({ proyectId }: { proyectId: string }) {
   //Estilos
   
   //hooks
   const pathName = usePathname()
+
+  const links = [
+    { name: 'Principal', href: `/edicion/proyecto/${proyectId}`, icon: HomeIcon },
+    { name: 'Tipografía', href: `/edicion/proyecto/${proyectId}/tipografia`,icon:LanguageIcon,  },
+    { name: 'Colores', href: `/edicion/proyecto/${proyectId}/colores`,icon:SwatchIcon,  },
+    { name: 'Componentes', href: `/edicion/proyecto/${proyectId}/componentes`,icon:PuzzlePieceIcon,  },
+    { name: 'Accesibilidad', href: `/edicion/proyecto/${proyectId}/accesibilidad`,icon:CheckCircleIcon,  },
+  ];
+
   return (
     <>
       {links.map((link) => {
