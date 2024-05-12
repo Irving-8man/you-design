@@ -22,9 +22,6 @@ import Save from '@/app/ui/icons/save';
 export default function Page() {
   //Estilos
   const classMain__form = 'w-[1000px]';
-  const classMain__title = 'text-2xl font-bold';
-  const classMain__Exter = 'flex flex-row nowrap text-[15px] gap-[5px]';
-  const classMain__Link_Re = 'underline hover:no-underline';
   const classTitle_form = 'font-bold text-[24px]';
   const classLabel = 'font-normal text-[16px]';
   const classSubt_form = 'font-thin text-slate-500';
