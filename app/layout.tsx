@@ -1,4 +1,5 @@
 import '@/app/ui/global.css'
+import { Toaster } from "@/app/components/toaster"
 
 export default function RootLayout({
   children,
@@ -10,6 +11,7 @@ export default function RootLayout({
     <html lang="es">
       <body>
         {children}
+        <Toaster/>
       </body>
     </html>
   );

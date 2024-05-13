@@ -5,41 +5,53 @@ import { ClipboardIcon } from '@heroicons/react/24/outline';
 import { useEffect, useState } from 'react';
 import { Input } from '@/app/components/input';
 import { calcularRatio } from '@/app/lib/contrastColor';
+import { useToast } from "@/app/components/use-toast"
 
 
 interface ContrastColorsProps {
   paleta: Color[]; // Color es la interfaz definida en el componente padre
 }
 
+interface Color {
+  id: number;
+  colorHex: string;
+}
 
 //**Componente de contrastes */
 function ContrastColors({ paleta }: ContrastColorsProps) {
-  let paletaUser = [
-    { id: 1, colorHex: '#14B8A6' },
-    { id: 2, colorHex: '#FB7185' },
-    { id: 3, colorHex: '#133074' },
-    { id: 4, colorHex: '#0E1753' },
-  ];
-
   const Pruebas = [
     { id: 1, prueba: 'Large Text WCAG AA', ratio: 1 / 3 },
     { id: 2, prueba: 'Normal Text WCAG AA', ratio: 1 / 4.5 },
     { id: 3, prueba: 'Large Text WCAG AAA', ratio: 1 / 4.5 },
     { id: 4, prueba: 'Normal Text WCAG AAA', ratio: 1 / 7 },
   ];
-
   const passChecks = { passCheck: '✅ Pasa', noPassCheck: '❌ No pasa' };
 
-  const [colorPlano, setPlano] = useState('#000000');
+  //estados
+  const [selectedColor, setSelectedColor] = useState<Color>(paleta[0]);
+
+  // Actualizar selectedColor cuando cambie la paleta
+  useEffect(() => {
+    if (paleta.length > 0) {
+      setSelectedColor(paleta[0]); 
+    }
+  }, [paleta]);
+
+  const handleChangeColor = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedHex = event.target.value;
+    const selected = paleta.find((color) => color.colorHex === selectedHex);
+    if (selected) {
+      setSelectedColor(selected);
+    }
+  };
 
   return (
-    <section className="min-h-[600px] min-w-[650px] border-b border-l px-6 pt-6">
-
-      <div className="nowrap flex flex-row justify-between mb-[10px] border-b pb-3">
+    <section className="min-h-[500px] min-w-[650px] border-b border-l px-6 pt-6">
+      <div className="nowrap mb-[10px] flex flex-row justify-between border-b pb-3">
         <h2 className="text-[24px] font-medium">Contraste de color</h2>
         <div className="flex flex-col gap-[5px]">
           <span className="block p-2 font-medium">Primer plano</span>
-          <select name="" id="">
+          <select name="Selectpaleta" id="paleta" onChange={handleChangeColor}>
             {paleta.map((color, i) => (
               <option key={i + 1} value={color.colorHex}>
                 {color.colorHex}
@@ -55,61 +67,58 @@ function ContrastColors({ paleta }: ContrastColorsProps) {
           <ul className="mb-[10px] grid w-full grid-cols-[12ch_12ch_12ch_12ch] place-content-end gap-x-[25px]">
             {Pruebas.map((contp, i) => (
               <li key={i} className="flex flex-row justify-center">
-                <p className="w-[10ch] text-center font-[500] text-[14px]">{contp.prueba}</p>
+                <p className="w-[10ch] text-center text-[14px] font-[500]">
+                  {contp.prueba}
+                </p>
               </li>
             ))}
           </ul>
 
           <ul className="flex flex-col gap-[59px]">
-            {paleta.map((color, i) => (
-              <li
-                key={i}
-                className="grid h-[50px] w-full grid-cols-5 place-content-between"
-              >
-                <div className="w-[80px]">
-                  <div
-                    className="flex h-[50px] w-[80px] flex-col justify-center text-center"
-                    style={{
-                      backgroundColor: color.colorHex,
-                      border: '1px solid #71717a',
-                    }}
-                  >
-                    <p
-                      className="text-[16px]"
-                      style={{ color: colorPlano }}
+            {paleta
+              .filter((color) => color.id !== selectedColor.id) // Excluir el color seleccionado
+              .map((color, i) => (
+                <li
+                  key={i}
+                  className="grid h-[50px] w-full grid-cols-5 place-content-between"
+                >
+                  <div className="w-[80px]">
+                    <div
+                      className="flex h-[50px] w-[80px] flex-col justify-center text-center"
+                      style={{
+                        backgroundColor: color.colorHex,
+                        border: '1px solid #71717a',
+                      }}
                     >
-                      Hola
-                    </p>
+                      <p
+                        className="text-[16px]"
+                        style={{ color: selectedColor?.colorHex }}
+                      >
+                        Hola
+                      </p>
+                    </div>
+                    <div className="text-center">
+                      <p>Fondo</p>
+                      <p className="font-medium">{color.colorHex}</p>
+                    </div>
                   </div>
-                  <div className="text-center">
-                    <p>Fondo</p>
-                    <p className="font-medium">{color.colorHex}</p>
-                  </div>
-                </div>
 
-                {Pruebas.map((contpass, i) => (
-                  <p key={i} className="w-[10ch] text-center">
-                    {calcularRatio(colorPlano, color.colorHex) < contpass.ratio
-                      ? passChecks.passCheck
-                      : passChecks.noPassCheck}
-                  </p>
-                ))}
-              </li>
-            ))}
+                  {Pruebas.map((contpass, i) => (
+                    <p key={i} className="w-[10ch] text-center">
+                      {calcularRatio(selectedColor.colorHex, color.colorHex) <
+                      contpass.ratio
+                        ? passChecks.passCheck
+                        : passChecks.noPassCheck}
+                    </p>
+                  ))}
+                </li>
+              ))}
           </ul>
         </div>
       </article>
     </section>
   );
 }
-
-
-interface Color {
-  id: number;
-  colorHex: string;
-}
-
-
 
 export default function Page({ params }: { params: { id: string } }) {
   let coloresUser = [
@@ -118,7 +127,10 @@ export default function Page({ params }: { params: { id: string } }) {
     { id: 3, colorHex: '#133074' },
     { id: 4, colorHex: '#0E1753' },
   ];
+
+  //hooks
   const [paletaUser, setPaletaUser] = useState<Color[]>(coloresUser);
+  const { toast } = useToast()
 
   const handleColorChange = (id: number, newColor: string) => {
     setPaletaUser((prevPalette) =>
@@ -135,6 +147,10 @@ export default function Page({ params }: { params: { id: string } }) {
       }, ':root {\n') + '}';
 
     navigator.clipboard.writeText(cssFormat);
+    toast({
+      title: "Copiado en portapapeles",
+      description: "Utiliza ya tu paleta de colores como CSS",
+    })
   };
 
   return (
@@ -187,7 +203,7 @@ export default function Page({ params }: { params: { id: string } }) {
         </article>
       </section>
 
-      <ContrastColors paleta={paletaUser}/>
+      <ContrastColors paleta={paletaUser} />
     </div>
   );
 }
