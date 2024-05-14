@@ -17,19 +17,27 @@ import { Card, CardContent } from '@/app/components/card';
 import { formSchema } from '@/app/lib/formsZod';
 import { ClipboardIcon } from '@heroicons/react/24/outline';
 import { useEffect, useState } from 'react';
+import {
+  Ratio,
+  getListRatios,
+  Recomen,
+  getListRecomendaciones,
+} from '@/app/lib/utilsTypog';
 
 //Entradas del cliente
 function TipografiaCliente() {
   const copyToClipboard = () => {
     navigator.clipboard.writeText('hola');
   };
+
+  const LISTRATIOS = getListRatios();
   //Estilos
   const classMain__form = 'w-[1000px]';
   const classLabel = 'font-normal text-[16px]';
 
   return (
-    <Card className="mt-[30px] px-7 py-5">
-      <CardContent>
+    <section className="mt-[30px] rounded-xl border bg-card px-7 py-5 text-card-foreground shadow">
+      <div className="p-6 pt-0">
         <div className="nowrap mb-4 flex flex-row justify-between">
           <p className="text-[24px] font-bold">Información base</p>
           <Button
@@ -42,7 +50,7 @@ function TipografiaCliente() {
           </Button>
         </div>
 
-        <div className='flex flex-col nowrap gap-[50px]'>
+        <div className="nowrap flex flex-col gap-[50px]">
           <div>
             <p className="font-medium">Fuentes base</p>
             <div>
@@ -55,16 +63,30 @@ function TipografiaCliente() {
           </div>
 
           <div className="flex flex-row justify-between">
-            <div> <p className="font-medium">Tamaño base</p> </div>
-            <div> <p className="font-medium">Escala de ratio</p> </div>
-            <div> <p className="font-medium">Interlineado</p> </div>
+            <div>
+              <p className="font-medium">Tamaño base</p>
+            </div>
+            <div>
+              {' '}
+              <p className="font-medium">Escala de ratio</p>
+              <select name="SelectRatio" id="ratios" className="max-w-[20ch]">
+                {LISTRATIOS.map((Ratio) => (
+                  <option key={Ratio.id} value={Ratio.valor} className="max-w-[10ch]">
+                      {Ratio.nombre}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              {' '}
+              <p className="font-medium">Interlineado</p>{' '}
+            </div>
           </div>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </section>
   );
 }
-
 
 function TipografiaRecomen() {
   const copyToClipboard = () => {
@@ -74,24 +96,15 @@ function TipografiaRecomen() {
   const classMain__form = 'w-[1000px]';
   const classLabel = 'font-normal text-[16px]';
 
-  const listRecomend = [
-    {id:1,categoria:'H1',weight:'200'},
-    {id:2,categoria:'H2',weight:'200'},
-    {id:3,categoria:'H3',weight:'400'},
-    {id:4,categoria:'H4',weight:'400'},
-    {id:5,categoria:'Subtitulo 1',weight:'400'},
-    {id:6,categoria:'Subitulo 2',weight:'600'},
-    {id:7,categoria:'Body',weight:'400'},
-    {id:8,categoria:'Botón',weight:'600'},
-    {id:9,categoria:'Caption',weight:'400'},
-    {id:10,categoria:'Overline',weight:'400'},
-  ];
+  const listRecomend = getListRecomendaciones();
 
   return (
-    <Card className="mt-[30px] px-7 py-5">
-      <CardContent>
+    <section className="mt-[30px] rounded-xl border bg-card px-7 py-5 text-card-foreground shadow">
+      <div className="p-6 pt-0">
         <div className="nowrap mb-4 flex flex-row justify-between">
-          <p className="text-[24px] font-bold">Recomendación basada en Material UI</p>
+          <p className="text-[24px] font-bold">
+            Recomendación basada en Material UI
+          </p>
           <Button
             variant="outline"
             className="row flex gap-[5px] text-[14px]"
@@ -102,44 +115,37 @@ function TipografiaRecomen() {
           </Button>
         </div>
 
-        <div className='flex flex-col nowrap gap-[10px]'>
+        <div className="nowrap flex flex-col gap-[10px]">
           <div className="flex flex-row justify-between">
             <p>Categoría</p>
             <p>Weight</p>
             <p>Tamaño</p>
           </div>
           <ul>
-              {listRecomend.map((cote) => (
-                <li key={cote.id}>
-                  <div className="flex flex-row justify-between">
-                    <p style={{ fontWeight: cote.weight }}>{cote.categoria}</p>
-                    <p>{cote.weight}</p>
-                    <p>{cote.weight}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+            {listRecomend.map((cote) => (
+              <li key={cote.id}>
+                <div className="flex flex-row justify-between">
+                  <p style={{ fontWeight: cote.weight }}>{cote.categoria}</p>
+                  <p>{cote.weight}</p>
+                  <p>{cote.weight}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </section>
   );
 }
 
-
-
-
 //Pagina
 export default function Page({ params }: { params: { id: string } }) {
-  const [datos,setDatos] = useState();
+  const [datos, setDatos] = useState();
 
-  useEffect(()=>{
-
-  },[])
-
-  
+  useEffect(() => {}, []);
 
   return (
-    <div className="px-6 pt-8 pb-8">
+    <div className="px-6 pb-8 pt-8">
       <div className="nowrap flex flex-row justify-between">
         <h1 className="text-[30px] font-medium">Tipografía</h1>
         <Button className="row flex gap-[5px]">

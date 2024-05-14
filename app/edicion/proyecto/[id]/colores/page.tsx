@@ -5,8 +5,13 @@ import { ClipboardIcon } from '@heroicons/react/24/outline';
 import { useEffect, useState } from 'react';
 import { Input } from '@/app/components/input';
 import { calcularRatio } from '@/app/lib/contrastColor';
-import { useToast } from "@/app/components/use-toast"
-
+import { useToast } from '@/app/components/use-toast';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/app/components/tooltip';
 
 interface ContrastColorsProps {
   paleta: Color[]; // Color es la interfaz definida en el componente padre
@@ -33,7 +38,7 @@ function ContrastColors({ paleta }: ContrastColorsProps) {
   // Actualizar selectedColor cuando cambie la paleta
   useEffect(() => {
     if (paleta.length > 0) {
-      setSelectedColor(paleta[0]); 
+      setSelectedColor(paleta[0]);
     }
   }, [paleta]);
 
@@ -130,7 +135,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
   //hooks
   const [paletaUser, setPaletaUser] = useState<Color[]>(coloresUser);
-  const { toast } = useToast()
+  const { toast } = useToast();
 
   const handleColorChange = (id: number, newColor: string) => {
     setPaletaUser((prevPalette) =>
@@ -148,9 +153,9 @@ export default function Page({ params }: { params: { id: string } }) {
 
     navigator.clipboard.writeText(cssFormat);
     toast({
-      title: "Copiado en portapapeles",
-      description: "Utiliza ya tu paleta de colores como CSS",
-    })
+      title: 'Copiado en portapapeles',
+      description: 'Utiliza ya tu paleta de colores como CSS',
+    });
   };
 
   return (
@@ -168,14 +173,23 @@ export default function Page({ params }: { params: { id: string } }) {
           <div className="p-6 pt-0">
             <div className="nowrap mb-4 flex flex-row justify-between">
               <p className="text-[24px] font-medium">Paleta de colores</p>
-              <Button
-                variant="outline"
-                className="row flex gap-[5px] text-[14px]"
-                onClick={copyToClipboard}
-              >
-                <ClipboardIcon className="w-6" />
-                Copiar CSS
-              </Button>
+
+              {/**cuantos te quedan */}
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button
+                      variant="outline"
+                      onClick={copyToClipboard}
+                    >
+                      <ClipboardIcon className="w-6" />
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p> Copiar como CSS</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </div>
 
             <ul>
