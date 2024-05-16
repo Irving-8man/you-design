@@ -15,7 +15,7 @@ export default function NavLinks({ proyectId }: { proyectId: string }) {
     { name: 'Principal', href: `/edicion/proyecto/${proyectId}`, icon: HomeIcon },
     { name: 'Tipografía', href: `/edicion/proyecto/${proyectId}/tipografia`,icon:LanguageIcon,  },
     { name: 'Colores', href: `/edicion/proyecto/${proyectId}/colores`,icon:SwatchIcon,  },
-    { name: 'Componentes', href: `/edicion/proyecto/${proyectId}/componentes`,icon:PuzzlePieceIcon,  },
+    //{ name: 'Componentes', href: `/edicion/proyecto/${proyectId}/componentes`,icon:PuzzlePieceIcon,  },
     { name: 'Accesibilidad', href: `/edicion/proyecto/${proyectId}/accesibilidad`,icon:CheckCircleIcon,  },
   ];
 

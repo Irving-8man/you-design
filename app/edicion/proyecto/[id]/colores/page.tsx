@@ -12,6 +12,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/app/components/tooltip';
+import { ToastAction } from '@/app/components/toast';
 
 interface ContrastColorsProps {
   paleta: Color[]; // Color es la interfaz definida en el componente padre
@@ -56,9 +57,9 @@ function ContrastColors({ paleta }: ContrastColorsProps) {
         <h2 className="text-[24px] font-medium">Contraste de color</h2>
         <div className="flex flex-col gap-[5px]">
           <span className="block p-2 font-medium">Primer plano</span>
-          <select name="Selectpaleta" id="paleta" onChange={handleChangeColor}>
+          <select name="Selectpaleta" id="paleta" onChange={handleChangeColor} className="flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1">
             {paleta.map((color, i) => (
-              <option key={i + 1} value={color.colorHex}>
+              <option key={i + 1} value={color.colorHex}  className="relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-2 pr-8 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
                 {color.colorHex}
               </option>
             ))}
@@ -146,15 +147,27 @@ export default function Page({ params }: { params: { id: string } }) {
   };
 
   const copyToClipboard = () => {
-    const cssFormat =
-      paletaUser.reduce((acc, color, index) => {
-        return `${acc}color${index + 1}: ${color.colorHex};\n`;
-      }, ':root {\n') + '}';
-
-    navigator.clipboard.writeText(cssFormat);
-    toast({
-      title: 'Copiado en portapapeles',
-      description: 'Utiliza ya tu paleta de colores como CSS',
+    const cssFormat = paletaUser.reduce((acc, color, index) => {
+      return `${acc}--color${index + 1}:${color.colorHex};\n`;
+    }, '');
+  
+    navigator.clipboard.writeText(cssFormat.trim()).then(() => {
+      toast({
+        title: 'Copiado en portapapeles',
+        description: 'La paleta de colores se ha copiado como CSS.',
+      });
+    }).catch((error) => {
+      console.error('Error al copiar al portapapeles:', error);
+      toast({
+        variant: 'destructive',
+        title: 'Oh no!, algo fallo',
+        description: 'Ocurrio un problema al copiar a portapales',
+        action: (
+          <ToastAction altText="Intentar de nuevo">
+            Intentar de nuevo
+          </ToastAction>
+        ),
+      });
     });
   };
 
@@ -163,10 +176,6 @@ export default function Page({ params }: { params: { id: string } }) {
       <section className="nowrap min-w-[450px] pt-6">
         <div className="nowrap flex flex-row justify-between">
           <h1 className="text-[30px] font-bold">Colores</h1>
-          <Button className="row flex gap-[5px]">
-            <Save />
-            Guardar
-          </Button>
         </div>
 
         <article className="mt-[30px] rounded-xl border bg-card px-3 py-5 text-card-foreground shadow">
@@ -178,11 +187,9 @@ export default function Page({ params }: { params: { id: string } }) {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button
-                      variant="outline"
-                      onClick={copyToClipboard}
-                    >
-                      <ClipboardIcon className="w-6" />
+                    <Button variant="outline" className="row flex gap-[5px] text-[14px]" onClick={copyToClipboard}>
+                      Paleta
+                      <ClipboardIcon className="w-5" />
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>
@@ -195,7 +202,7 @@ export default function Page({ params }: { params: { id: string } }) {
             <ul>
               {paletaUser.map((color, i) => (
                 <li key={i + 1}>
-                  <div className="flex flex-row justify-between p-3">
+                  <div className="flex flex-row justify-between py-3">
                     <div className="flex flex-col gap-[2px]">
                       <p className="font-medium">Color {i + 1}</p>
                       <p className="text-[16px]">{color.colorHex}</p>
@@ -213,6 +220,12 @@ export default function Page({ params }: { params: { id: string } }) {
                 </li>
               ))}
             </ul>
+          </div>
+          <div className="flex flex-row nowrap justify-end">
+          <Button className="row flex gap-[5px]">
+              Guardar
+              <Save />
+            </Button>
           </div>
         </article>
       </section>

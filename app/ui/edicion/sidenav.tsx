@@ -1,3 +1,4 @@
+'use client';
 import NavLinks from '@/app/ui/edicion/nav-links';
 import { ArrowLeftOnRectangleIcon } from '@heroicons/react/24/outline';
 
