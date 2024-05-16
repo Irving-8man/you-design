@@ -81,7 +81,6 @@ export default function Page({ params }: { params: { id: string } }) {
   const LISTRATIOS = getListRatios();
   const TIENETIPOGRA = TIPOGRAFIAS?.length > 0;
 
-  //<TipografiaRecomen />
   return (
     <div className="px-6 pb-8 pt-8">
       <div className="nowrap flex flex-row justify-between">

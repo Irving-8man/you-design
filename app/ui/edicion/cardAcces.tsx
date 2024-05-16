@@ -1,3 +1,5 @@
+'use cliente';
+
 import {
   Card,
   CardContent,
