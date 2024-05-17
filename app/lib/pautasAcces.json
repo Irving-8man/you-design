@@ -1,0 +1,457 @@
+{
+  "1.1": {
+    "titulo": "Alternativas de texto",
+    "descripcion": "Proporcionar alternativas textuales para cualquier contenido que no sea texto, de modo que pueda cambiarse a otras formas que las personas necesiten, como letra grande, braille, voz, símbolos o un lenguaje más simple.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv.html"
+  },
+  "1.1.1": {
+    "titulo": "Contenido no textual A",
+    "descripcion": "Todo el contenido no textual que se presenta al usuario tiene una alternativa de texto que cumple el propósito equivalente, excepto en las situaciones que se enumeran a continuación.",
+    "excepciones": [
+      {
+        "situacion": "Controles y entradas",
+        "condicion": "El contenido que no es texto es un control o acepta entradas del usuario, entonces tiene un nombre que describe su propósito."
+      },
+      {
+        "situacion": "Medios basados en el tiempo",
+        "condicion": "El contenido no textual es un medio basado en el tiempo, entonces las alternativas textuales al menos proporcionan una identificación descriptiva del contenido no textual."
+      },
+      {
+        "situacion": "Pruebas o ejercicios",
+        "condicion": "El contenido no textual es una prueba o ejercicio que no sería válido si se presentara en texto, entonces las alternativas textuales al menos proporcionan una identificación descriptiva del contenido no textual."
+      },
+      {
+        "situacion": "Experiencia sensorial",
+        "condicion": "El contenido no textual tiene como objetivo principal crear una experiencia sensorial específica, entonces las alternativas textuales al menos proporcionan una identificación descriptiva del contenido no textual."
+      },
+      {
+        "situacion": "CAPTCHA",
+        "condicion": "Alternativas de texto que identifican y describen el propósito del contenido que no es texto, y formas alternativas de CAPTCHA que utilizan modos de salida para diferentes tipos de percepción sensorial para adaptarse a diferentes discapacidades."
+      },
+      {
+        "situacion": "Decoración, formato o invisible",
+        "condicion": "El contenido que no es texto es pura decoración, se usa solo para formato visual o no se presenta a los usuarios, entonces se implementa de manera que la tecnología de asistencia pueda ignorarlo."
+      }
+    ],
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html"
+  },
+  "1.2": {
+    "titulo": "Medios basados en el tiempo",
+    "descripcion": "Proporcionar opciones para medios temporales, como contenido auditivo, visual, audiovisual o una combinación de ambos con interacción. Para que a los autores les resulte más fácil determinar rápidamente qué criterios de éxito se aplican a su contenido.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv.html"
+  },
+  "1.2.1": {
+    "titulo": "Sólo audio y sólo vídeo (pregrabado) A",
+    "descripcion": "Para medios de solo audio pregrabados y solo de video pregrabados, se cumple lo siguiente, excepto cuando el audio o video es un medio alternativo al texto y está claramente etiquetado como tal:",
+    "condiciones": [
+      {
+        "situacion": "Solo audio pregrabado",
+        "condicion": "Se proporciona una alternativa para medios basados en el tiempo que presenta información equivalente para contenido de solo audio pregrabado."
+      },
+      {
+        "situacion": "Solo video pregrabado",
+        "condicion": "Se proporciona una alternativa para medios basados en el tiempo o una pista de audio que presenta información equivalente para contenido de solo video pregrabado."
+      }
+    ],
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-av-only-alt.html"
+  },
+  "1.2.2": {
+    "titulo": "Subtítulos (pregrabados) A",
+    "descripcion": "Se proporcionan subtítulos para todo el contenido de audio pregrabado en medios sincronizados, excepto cuando el medio es un medio alternativo al texto y está claramente etiquetado como tal.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-captions.html"
+  },
+  "1.2.3": {
+    "titulo": "Descripción de audio o medio alternativo (pregrabado) A",
+    "descripcion": "Se proporciona una alternativa para medios basados en tiempo o descripción de audio del contenido de video pregrabado para medios sincronizados, excepto cuando el medio es un medio alternativo para texto y está claramente etiquetado como tal.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-audio-desc.html"
+  },
+  "1.2.4": {
+    "titulo": "Subtítulos (en vivo) AA",
+    "descripcion": "Permitir que las personas sordas o con problemas de audición vean presentaciones en tiempo real. Los subtítulos proporcionan la parte del contenido disponible a través de la pista de audio.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-real-time-captions.html"
+  },
+  "1.2.5": {
+    "titulo": "Audiodescripción (pregrabada) AA",
+    "descripcion": "Brindar a las personas ciegas o con discapacidad visual acceso a la información visual en una presentación multimedia sincronizada.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-audio-desc-only.html"
+  },
+  "1.2.6": {
+    "titulo": "Lenguaje de Señas (Pregrabado) AAA",
+    "descripcion": "Permitir que las personas sordas o con problemas de audición y que dominan un lenguaje de señas comprendan el contenido de la pista de audio de presentaciones de medios sincronizados.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-sign.html"
+  },
+  "1.2.7": {
+    "titulo": "Descripción de audio ampliada (pregrabada) AAA",
+    "descripcion": "Cuando las pausas en el audio de primer plano son insuficientes para permitir que las descripciones de audio transmitan el sentido del video, se proporciona una descripción de audio extendida para todo el contenido de video pregrabado en medios sincronizados.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-extended-ad.html"
+  },
+  "1.2.8": {
+    "titulo": "Medios Alternativos (Pregrabados) AAA",
+    "descripcion": "Se proporciona una alternativa para los medios basados en el tiempo para todos los medios sincronizados pregrabados y para todos los medios pregrabados de solo video.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-text-doc.html"
+  },
+  "1.2.9": {
+    "titulo": "AAA de solo audio (en vivo)",
+    "descripcion": "se proporciona una alternativa para medios basados en tiempo que presenta información equivalente para contenido de solo audio en vivo.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-live-audio-only.html"
+  },
+  "1.3": {
+    "titulo": "Adaptable",
+    "descripcion": "El objetivo de esta directriz es garantizar que toda la información esté disponible en una forma que todos los usuarios puedan percibir.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation.html"
+  },
+  "1.3.1": {
+    "titulo": "Información y relaciones A",
+    "descripcion": "La información, la estructura y las relaciones transmitidas a través de la presentación se pueden determinar mediante programación o están disponibles en texto.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+  },
+  "1.3.2": {
+    "titulo": "Secuencia significativa A",
+    "descripcion": "Es permitir que un agente de usuario proporcione una presentación alternativa del contenido preservando al mismo tiempo el orden de lectura necesario para comprender el significado.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-sequence.html"
+  },
+  "1.3.3": {
+    "titulo": "Características sensoriales A",
+    "descripcion": "Las instrucciones proporcionadas para comprender y operar el contenido no se basan únicamente en las características sensoriales de los componentes, como la forma, el tamaño, la ubicación visual, la orientación o el sonido.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-understanding.html"
+  },
+  "1.4": {
+    "titulo": "Distinguible",
+    "descripcion": "Facilitar a los usuarios ver y escuchar el contenido, incluida la separación del primer plano del fondo.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast.html"
+  },
+  "1.4.1": {
+    "titulo": "Uso del color A",
+    "descripcion": "El color no se utiliza como el único medio visual para transmitir información, indicar una acción, provocar una respuesta o distinguir un elemento visual.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html"
+  },
+  "1.4.2": {
+    "titulo": "Control de audio A",
+    "descripcion": "Si algún audio en una página web se reproduce automáticamente durante más de 3 segundos, hay un mecanismo disponible para pausar o detener el audio, o hay un mecanismo disponible para controlar el volumen del audio independientemente del nivel de volumen general del sistema.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-dis-audio.html"
+  },
+  "1.4.3": {
+    "titulo": "Contraste (mínimo) AA",
+    "descripcion": "La presentación visual de texto e imágenes de texto debe tener una relación de contraste de al menos 4.5:1, excepto en los siguientes casos:",
+    "excepciones": [
+      "Texto grande: El texto a gran escala y las imágenes de texto a gran escala tienen una relación de contraste de al menos 3:1;",
+      "Incidental: Texto o imágenes de texto que son decorativos, inactivos, no visibles o parte de una imagen con contenido visual significativo no tienen requisitos de contraste.",
+      "Logotipos: El texto que forma parte de un logotipo o marca no tiene requisito mínimo de contraste."
+    ],
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html"
+  },
+  "1.4.4": {
+    "titulo": "Cambiar el tamaño del texto AA",
+    "descripcion": "Excepto los subtítulos y las imágenes de texto, el texto se puede cambiar de tamaño sin tecnología de asistencia hasta en un 200 por ciento sin pérdida de contenido o funcionalidad.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html"
+  },
+  "1.4.5": {
+    "titulo": "Imágenes de Texto AA",
+    "descripcion": "Si las tecnologías que se utilizan pueden lograr la presentación visual, se utiliza texto para transmitir información en lugar de imágenes de texto, excepto en los siguientes casos:",
+    "excepciones": [
+      "Personalizable: la imagen del texto se puede personalizar visualmente según los requisitos del usuario.",
+      "Esencial: una presentación particular del texto es esencial para la información que se transmite."
+    ],
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-text-presentation.html"
+  },
+  "1.4.6": {
+    "titulo": "Contraste (mejorado) AAA",
+    "descripcion": "La presentación visual de texto e imágenes de texto debe tener una relación de contraste de al menos 7:1, excepto en los siguientes casos:",
+    "excepciones": [
+      "Texto grande: el texto a gran escala y las imágenes de texto a gran escala tienen una relación de contraste de al menos 4,5:1;",
+      "Incidental: el texto o imágenes de texto que forman parte de un componente inactivo de la interfaz de usuario, que son pura decoración, que no son visibles para nadie o que forman parte de una imagen que contiene otro contenido visual significativo, no tienen ningún requisito de contraste.",
+      "Logotipos: El texto que forma parte de un logotipo o marca no tiene requisito mínimo de contraste."
+    ],
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast7.html"
+  },
+  "1.4.7": {
+    "titulo": "Audio de fondo bajo o nulo AAA",
+    "descripcion": "Para contenido de audio pregrabado que se centra en la voz principal y no es un CAPTCHA de audio, un logotipo de audio ni una expresión vocal principalmente musical, al menos una de las siguientes condiciones debe ser verdadera:",
+    "condiciones": [
+      "Sin fondo: El audio no incluye sonidos de fondo.",
+      "Apagar: Los sonidos de fondo pueden ser silenciados.",
+      "20 dB: Los sonidos de fondo son al menos 20 decibeles más bajos que el contenido de la voz principal, con excepción de sonidos ocasionales breves."
+    ],
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-noaudio.html"
+  },
+  "1.4.8": {
+    "titulo": "Presentación visual AAA",
+    "descripcion": "Para la presentación visual de bloques de texto, se dispone de un mecanismo para lograr lo siguiente:",
+    "logros": [
+      "El usuario puede seleccionar los colores de primer plano y de fondo.",
+      "El ancho no supera los 80 caracteres o glifos (40 si es CJK ).",
+      "El texto no está justificado (alineado con los márgenes izquierdo y derecho).",
+      "El interlineado (interlineado) es al menos de espacio y medio dentro de los párrafos, y el interlineado es al menos 1,5 veces mayor que el interlineado.",
+      "Se puede cambiar el tamaño del texto sin tecnología de asistencia hasta en un 200 por ciento de una manera que no requiere que el usuario se desplace horizontalmente para leer una línea de texto en una ventana de pantalla completa."
+    ],
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html"
+  },
+  "1.4.9": {
+    "titulo": "Imágenes de texto (sin excepción) AAA",
+    "descripcion": "Las imágenes de texto solo se utilizan con fines puramente decorativos o cuando una presentación particular del texto es esencial para la información que se transmite.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-text-images.html"
+  },
+  "2.1": {
+    "titulo": "Teclado accesible",
+    "descripcion": "Hacer que todas las funciones estén disponibles desde un teclado.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/keyboard-operation.html"
+  },
+  "2.1.1": {
+    "titulo": "Teclado A",
+    "descripcion": "Todas las funciones del contenido se pueden operar a través de una interfaz de teclado sin requerir tiempos específicos para pulsaciones de teclas individuales, excepto cuando la función subyacente requiere una entrada que depende de la ruta del movimiento del usuario y no solo de los puntos finales.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/keyboard-operation-keyboard-operable.html"
+  },
+  "2.1.2": {
+    "titulo": "Sin trampa de teclado A",
+    "descripcion": "Si el foco del teclado se puede mover a un componente de la página usando una interfaz de teclado, entonces el foco se puede alejar de ese componente usando solo una interfaz de teclado y, si requiere más que una flecha o tabulación sin modificar teclas u otros métodos de salida estándar, se informa al usuario sobre el método para alejar el foco.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/keyboard-operation-trapping.html"
+  },
+  "2.1.3": {
+    "titulo": "Teclado (sin excepción) AAA",
+    "descripcion": "Todas las funciones del contenido se pueden operar a través de una interfaz de teclado sin requerir tiempos específicos para pulsaciones de teclas individuales.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/keyboard-operation-all-funcs.html"
+  },
+  "2.2": {
+    "titulo": "Tiempo suficiente",
+    "descripcion": "Garantizar que los usuarios puedan completar las tareas requeridas por el contenido con sus propios tiempos de respuesta individuales.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits.html"
+  },
+  "2.2.1": {
+    "titulo": "Sincronización ajustable A",
+    "descripcion": "Para cada límite de tiempo que establece el contenido, se cumple al menos uno de los siguientes:",
+    "opciones": [
+      {
+        "tipo": "Apagar",
+        "descripcion": "El usuario puede desactivar el límite de tiempo antes de encontrarlo."
+      },
+      {
+        "tipo": "Ajustar",
+        "descripcion": "El usuario puede ajustar el límite de tiempo antes de encontrarlo en un amplio rango que es al menos diez veces la duración de la configuración predeterminada."
+      },
+      {
+        "tipo": "Extender",
+        "descripcion": "Se advierte al usuario antes de que expire y se le brindan al menos 20 segundos para extenderlo con una acción simple, y puede hacerlo al menos diez veces."
+      }
+    ],
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-adjustable.html"
+  },
+  "2.2.2": {
+    "titulo": "Pausar, detener, ocultar A",
+    "descripcion": "Para mover, parpadear, desplazarse o actualizar automáticamente la información:",
+    "requisitos": {
+      "Movimiento, parpadeo, desplazamiento": "Proporcionar a los usuarios control sobre elementos en movimiento, parpadeo o desplazamiento en una página web para evitar distracciones o posibles problemas de accesibilidad para personas con sensibilidades visuales.",
+      "Actualización automática": "Es esencial permitir a los usuarios controlar estas actualizaciones para evitar interrupciones no deseadas o situaciones que puedan dificultar la navegación, especialmente para aquellos con necesidades específicas o limitaciones en su experiencia de usuario."
+    },
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-pause.html"
+  },
+  "2.2.3": {
+    "titulo": "AAA sin sincronización",
+    "descripcion": "El cronometraje no es una parte esencial del evento o actividad presentada por el contenido, excepto para medios sincronizados no interactivos y eventos en tiempo real.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-no-exceptions.html"
+  },
+  "2.2.4": {
+    "titulo": "Interrupciones AAA",
+    "descripcion": "Las interrupciones podrán ser pospuestas o suprimidas por el usuario, excepto las que impliquen una emergencia.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-postponed.html"
+  },
+  "2.2.5": {
+    "titulo": "Reautenticar AAA",
+    "descripcion": "Permitir que todos los usuarios completen transacciones autenticadas que tienen límites de tiempo de inactividad u otras circunstancias que podrían provocar que un usuario cierre la sesión mientras está completando la transacción.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-server-timeout.html"
+  },
+  "2.3": {
+    "titulo": "Convulsiones",
+    "descripcion": "No diseñar contenido de una manera que se sepa que causa convulsiones.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure.html"
+  },
+  "2.3.1": {
+    "titulo": "Tres destellos o por debajo del umbral A",
+    "descripcion": "Las páginas web no contienen nada que parpadee más de tres veces en cualquier período de un segundo, o que el parpadeo esté por debajo de los umbrales generales de parpadeo y de parpadeo rojo.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure-does-not-violate.html"
+  },
+  "2.3.2": {
+    "titulo": "Tres destellos AAA",
+    "descripcion": "Las páginas web no contienen nada que parpadee más de tres veces en un período de un segundo.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure-three-times.html"
+  },
+  "2.4": {
+    "titulo": "Navegable",
+    "descripcion": "Proporcionar formas de ayudar a los usuarios a navegar, encontrar contenido y determinar dónde se encuentran.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms.html"
+  },
+  "2.4.1": {
+    "titulo": "Bloques de derivación A",
+    "descripcion": "Es permitir a las personas que navegan secuencialmente a través del contenido un acceso más directo al contenido principal de la página web.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-skip.html"
+  },
+  "2.4.2": {
+    "titulo": "Página titulada A",
+    "descripcion": "Es ayudar a los usuarios a encontrar contenido y orientarse dentro de él, asegurando que cada página web tenga un título descriptivo.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html"
+  },
+  "2.4.3": {
+    "titulo": "Orden de enfoque A",
+    "descripcion": "Si una página web se puede navegar secuencialmente y las secuencias de navegación afectan el significado o la operación, los componentes enfocables reciben el enfoque en un orden que preserva el significado y la operatividad.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-focus-order.html"
+  },
+  "2.4.4": {
+    "titulo": "Propósito del enlace (en contexto) A",
+    "descripcion": "El propósito de cada enlace se puede determinar solo a partir del texto del enlace o del texto del enlace junto con su contexto de enlace determinado mediante programación, excepto cuando el propósito del enlace sea ambiguo para los usuarios en general.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-refs.html"
+  },
+  "2.4.5": {
+    "titulo": "Múltiples formas AA",
+    "descripcion": "Hay más de una forma disponible para ubicar una página web dentro de un conjunto de páginas web, excepto cuando la página web es el resultado de un proceso o un paso de él.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-mult-loc.html"
+  },
+  "2.4.6": {
+    "titulo": "Encabezados y Etiquetas AA",
+    "descripcion": "Es ayudar a los usuarios a comprender qué información contienen las páginas web y cómo está organizada esa información.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-descriptive.html"
+  },
+  "2.4.7": {
+    "titulo": "Enfoque AA visible",
+    "descripcion": "Cualquier interfaz de usuario operable por teclado tiene un modo de operación donde el indicador de enfoque del teclado es visible.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-focus-visible.html"
+  },
+  "2.4.8": {
+    "titulo": "Ubicación AAA",
+    "descripcion": "Se encuentra disponible información sobre la ubicación del usuario dentro de un conjunto de páginas Web .",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-location.html"
+  },
+  "2.4.9": {
+    "titulo": "Propósito del enlace (solo enlace) AAA",
+    "descripcion": "Hay un mecanismo disponible para permitir que el propósito de cada enlace se identifique únicamente a partir del texto del enlace, excepto cuando el propósito del enlace sea ambiguo para los usuarios en general.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-link.html"
+  },
+  "2.4.10": {
+    "titulo": "Títulos de sección AAA",
+    "descripcion": "Es proporcionar encabezados para las secciones de una página web, cuando la página está organizada en secciones.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-headings.html"
+  },
+  "3.1": {
+    "titulo": "Legible",
+    "descripcion": "Es permitir que los usuarios y la tecnología de asistencia lean el contenido del texto, y garantizar que la información necesaria para comprenderlo esté disponible.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning.html"
+  },
+  "3.1.1": {
+    "titulo": "Idioma de la página A",
+    "descripcion": "Es garantizar que los desarrolladores de contenido proporcionen en la página web la información que los agentes de usuario necesitan para presentar el texto y otro contenido lingüístico correctamente.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-doc-lang-id.html"
+  },
+  "3.1.2": {
+    "titulo": "Idioma de las Partes AA",
+    "descripcion": "El lenguaje humano de cada pasaje o frase del contenido se puede determinar mediante programación, excepto los nombres propios, términos técnicos, palabras de lenguaje indeterminado y palabras o frases que se han convertido en parte de la lengua vernácula del entorno inmediato. texto.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-other-lang-id.html"
+  },
+  "3.1.3": {
+    "titulo": "Palabras inusuales AAA",
+    "descripcion": "Hay un mecanismo disponible para identificar definiciones específicas de palabras o frases utilizadas de manera inusual o restringida, incluidos modismos y jerga.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-idioms.html"
+  },
+  "3.1.4": {
+    "titulo": "Abreviaturas AAA",
+    "descripcion": "Está disponible un mecanismo para identificar la forma ampliada o el significado de las abreviaturas.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-located.html"
+  },
+  "3.1.5": {
+    "titulo": "Nivel de lectura AAA",
+    "descripcion": "Cuando el texto requiere una capacidad de lectura más avanzada que el nivel de educación secundaria inferior después de eliminar los nombres y títulos propios, se encuentra disponible contenido complementario o una versión que no requiere una capacidad de lectura más avanzada que el nivel de educación secundaria inferior.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-supplements.html"
+  },
+  "3.1.6": {
+    "titulo": "Pronunciación AAA",
+    "descripcion": "Hay un mecanismo disponible para identificar la pronunciación específica de palabras cuyo significado, en contexto, es ambiguo sin conocer la pronunciación.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-pronunciation.html"
+  },
+  "3.2": {
+    "titulo": "Predecible",
+    "descripcion": "Ayudar a los usuarios con discapacidades presentando el contenido en un orden predecible de una página web a otra y haciendo predecible el comportamiento de los componentes funcionales e interactivos.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior.html"
+  },
+  "3.2.1": {
+    "titulo": "Enfoque A",
+    "descripcion": "Es garantizar que la funcionalidad sea predecible a medida que los visitantes navegan por un documento. Cualquier componente que pueda desencadenar un evento cuando recibe el foco no debe cambiar el contexto.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-receive-focus.html"
+  },
+  "3.2.2": {
+    "titulo": "En la entrada A",
+    "descripcion": "Cambiar la configuración de cualquier componente de la interfaz de usuario no causa automáticamente un cambio de contexto a menos que se haya informado al usuario sobre el comportamiento antes de usar el componente.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-unpredictable-change.html"
+  },
+  "3.2.3": {
+    "titulo": "Navegación consistente AA",
+    "descripcion": "Los mecanismos de navegación que se repiten en múltiples páginas web dentro de un conjunto de páginas web ocurren en el mismo orden relativo cada vez que se repiten, a menos que el usuario inicie un cambio.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-consistent-locations.html"
+  },
+  "3.2.4": {
+    "titulo": "Identificación consistente AA",
+    "descripcion": "Los componentes que tienen la misma funcionalidad dentro de un conjunto de páginas web se identifican consistentemente.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-consistent-functionality.html"
+  },
+  "3.2.5": {
+    "titulo": "Cambio a petición AAA",
+    "descripcion": "Los cambios de contexto se inician únicamente a petición del usuario o hay un mecanismo disponible para desactivar dichos cambios.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-no-extreme-changes-context.html"
+  },
+  "3.3": {
+    "titulo": "Asistencia de entrada",
+    "descripcion": "Ayudar a los usuarios a evitar y corregir errores.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error.html"
+  },
+  "3.3.1": {
+    "titulo": "Identificación de errores A",
+    "descripcion": "Si se detecta automáticamente un error de entrada, se identifica el elemento que tiene el error y se describe el error al usuario en texto.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-identified.html"
+  },
+  "3.3.2": {
+    "titulo": "Etiquetas o Instrucciones A",
+    "descripcion": "Se proporcionan etiquetas o instrucciones cuando el contenido requiere la intervención del usuario.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-cues.html"
+  },
+  "3.3.3": {
+    "titulo": "Sugerencia de error AA",
+    "descripcion": "Si se detecta automáticamente un error de entrada y se conocen sugerencias para su corrección, las sugerencias se proporcionan al usuario, a menos que ponga en peligro la seguridad o el propósito del contenido.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-suggestions.html"
+  },
+  "3.3.4": {
+    "titulo": "Prevención de errores (legales, financieros, de datos) AA",
+    "descripcion": "Para páginas web que generan compromisos legales o transacciones financieras para el usuario, que modifican o eliminan datos controlables por el usuario en sistemas de almacenamiento de datos, o que envían respuestas de prueba del usuario.",
+    "requisitos": [
+      "Reversible: Las presentaciones son reversibles.",
+      "Comprobado: los datos ingresados por el usuario se verifican en busca de errores de entrada y se le brinda al usuario la oportunidad de corregirlos.",
+      "Confirmado: Hay un mecanismo disponible para revisar, confirmar y corregir la información antes de finalizar el envío."
+    ],
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-reversible.html"
+  },
+  "3.3.5": {
+    "titulo": "Ayuda AAA",
+    "descripcion": "Ayudar a los usuarios a evitar cometer errores.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-context-help.html"
+  },
+  "3.3.6": {
+    "titulo": "Prevención de errores (todos) AAA",
+    "descripcion": "Páginas web que requieren información del usuario deben cumplir al menos uno de estos criterios:",
+    "requisitos": [
+      "Reversible: Las presentaciones son reversibles.",
+      "Comprobado: los datos ingresados por el usuario se verifican en busca de errores de entrada y se le brinda al usuario la oportunidad de corregirlos.",
+      "Confirmado: Hay un mecanismo disponible para revisar, confirmar y corregir la información antes de finalizar el envío."
+    ],
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-reversible-all.html"
+  },
+  "4.1": {
+    "titulo": "Compatibles",
+    "descripcion": "Maximizar la compatibilidad con agentes de usuario actuales y futuros, incluidas las tecnologías de asistencia.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat.html"
+  },
+  "4.1.1": {
+    "titulo": "Análisis A",
+    "descripcion": "En el contenido implementado utilizando lenguajes de marcado, los elementos tienen etiquetas de inicio y fin completas, los elementos están anidados de acuerdo con sus especificaciones, los elementos no contienen atributos duplicados y cualquier ID es único, excepto cuando las especificaciones permitan estas características.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-parses.html"
+  },
+  "4.1.2": {
+    "titulo": "Nombre, Función, Valor A",
+    "descripcion": "Para todos los componentes de la interfaz de usuario (incluidos, entre otros: elementos de formulario, enlaces y componentes generados por scripts), el nombre y la función se pueden determinar mediante programación.",
+    "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-rsv.html"
+  }
+}
