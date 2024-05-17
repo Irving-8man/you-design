@@ -24,15 +24,17 @@ import { Textarea } from '@/app/components/textArea';
 
 import CardProyect from '@/app/ui/dashboard/card-proy';
 
-async function totalProyectos() {
-  return 1;
-}
 
 export default async function ProyectosPage() {
   //hooks
   //const session = await getServerSession()
 
-  let proyectos = await totalProyectos();
+  const proyectos = 1;
+  const LISTPROYECTOS = [
+    {id:1,idUser:2,nombre:"ARETEO",descripcion:"Uno proyecto mas1"},
+    {id:2,idUser:2,nombre:"CRESPO",descripcion:"Uno proyecto mas2"},
+    {id:3,idUser:2,nombre:"SSASA",descripcion:"Uno proyecto mas2"}
+  ]
 
   return (
     <div className="px-6 pt-8">
