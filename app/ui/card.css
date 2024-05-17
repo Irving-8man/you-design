@@ -1,0 +1,22 @@
+
+@charset "UTF-8";
+
+.transition__board{
+  transition: border-image .4s ease;
+}
+
+.accesA {
+  /**#D946EF #10b481 #5eead4*/
+  border-image: linear-gradient(45deg, #5eead4, #002fff) 2;
+  transition: border-image .4s ease;
+}
+
+.accesAA {
+  border-image: linear-gradient(45deg, #c3e040, #10b481) 2;
+  transition: border-image .4s ease-in-out;
+}
+
+.accesAAA{
+  border-image: linear-gradient(45deg, turquoise, #D946EF) 2;
+  transition: border-image .4s ease-in-out;
+}

@@ -24,7 +24,7 @@
     {
       "id": "A-1.3.1",
       "nivel": "A",
-      "titulo": "Información y relaciones A",
+      "titulo": "Información y relaciones",
       "descripcion": "La información, la estructura y las relaciones transmitidas a través de la presentación se pueden determinar mediante programación o están disponibles en texto.",
       "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
     },
@@ -38,7 +38,7 @@
     {
       "id": "A-1.4.1",
       "nivel": "A",
-      "titulo": "Uso del color A",
+      "titulo": "Uso del color",
       "descripcion": "El color no se utiliza como el único medio visual para transmitir información, indicar una acción, provocar una respuesta o distinguir un elemento visual.",
       "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html"
     },
@@ -59,14 +59,14 @@
     {
       "id": "A-2.2.1",
       "nivel": "A",
-      "titulo": "Tiempo ajustable A",
+      "titulo": "Tiempo ajustable",
       "descripcion": "Para que no se produzca una violación de los límites de tiempo, el usuario debe poder desactivar el límite de tiempo ajustándolo a 10 veces el límite de tiempo predeterminado.",
       "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html"
     },
     {
       "id": "A-2.2.2",
       "nivel": "A",
-      "titulo": "Pausar, detener, ocultar A",
+      "titulo": "Pausar, detener, ocultar",
       "descripcion": "Para que los objetos en movimiento que parpadean duren no más de cinco segundos.",
       "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-pause.html"
     },
@@ -80,7 +80,7 @@
     {
       "id": "A-2.4.1",
       "nivel": "A",
-      "titulo": "Encabezados y etiquetas A",
+      "titulo": "Encabezados y etiquetas",
       "descripcion": "Para que la navegación y la búsqueda se realicen más eficientemente, los encabezados deben describir el tema o el propósito.",
       "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-headings.html"
     },
@@ -101,7 +101,7 @@
     {
       "id": "A-4.1.1",
       "nivel": "A",
-      "titulo": "Interpretación del estado A",
+      "titulo": "Interpretación del estado",
       "descripcion": "Para que la información sobre el estado, la identificación y la previsión de la entrada de datos no se transmita solo mediante el color.",
       "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-rsv.html"
     },
@@ -109,49 +109,49 @@
     {
       "id": "AA-1.4",
       "nivel": "AA",
-      "titulo": "Alternativas en texto AA",
+      "titulo": "Alternativas en texto",
       "descripcion": "Siempre que haya contenido que no sea texto, proporcionar una alternativa textual que sirva para presentar la información y los comportamientos de la misma manera o en un formato alternativo que no requiera percepción visual, a menos que el solo texto sea el medio para la comprensión del contenido.",
       "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html"
     },
     {
       "id": "AA-1.4.3",
       "nivel": "AA",
-      "titulo": "Contrastar (mínimo) AA",
+      "titulo": "Contraste (mínimo)",
       "descripcion": "El texto y las imágenes de texto tienen un contraste de color de al menos 4.5:1, excepto si el texto es un tamaño de fuente grande, un texto que es parte de un logotipo o un texto que está incrustado en una imagen.",
       "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html"
     },
     {
       "id": "AA-2.4",
       "nivel": "AA",
-      "titulo": "Navegación consistente AA",
+      "titulo": "Navegación consistente",
       "descripcion": "Proporcionar formas de ayudar a los usuarios a navegar, buscar contenido y determinar dónde se encuentran.",
       "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms.html"
     },
     {
       "id": "AA-2.4.2",
       "nivel": "AA",
-      "titulo": "Encabezados y etiquetas AA",
+      "titulo": "Encabezados y etiquetas",
       "descripcion": "Para que la navegación y la búsqueda se realicen más eficientemente, los encabezados deben describir el tema o el propósito.",
       "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-headings.html"
     },
     {
       "id": "AA-2.4.3",
       "nivel": "AA",
-      "titulo": "Enlaces focables AA",
+      "titulo": "Enlaces focables",
       "descripcion": "Si un enlace o botón recibe el foco, el foco debe ser visible y claro.",
       "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-focus-visible.html"
     },
     {
       "id": "AA-2.4.4",
       "nivel": "AA",
-      "titulo": "Propósito de enlaces AA",
+      "titulo": "Propósito de enlaces",
       "descripcion": "El propósito de cada enlace se puede determinar a partir del texto del enlace solo o del texto del enlace junto con su contexto.",
       "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-refs.html"
     },
     {
       "id": "AA-3.2.1",
       "nivel": "AA",
-      "titulo": "Enfoque AA",
+      "titulo": "Enfoque",
       "descripcion": "Cuando cualquier componente reciba el foco, su nombre y función se pueden determinar a partir de la información proporcionada por el usuario, excepto cuando el propósito del componente sea identificar la entrada de datos.",
       "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/predictable-behavior-keyboard.html"
     },
@@ -159,35 +159,35 @@
     {
       "id": "AAA-1.2",
       "nivel": "AAA",
-      "titulo": "Lenguaje de Señas (Pregrabado) AAA",
+      "titulo": "Lenguaje de Señas (Pregrabado)",
       "descripcion": "Permitir que las personas sordas o con problemas de audición y que dominan un lenguaje de señas comprendan el contenido de la pista de audio de presentaciones de medios sincronizados.",
       "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-sign.html"
     },
     {
       "id": "AAA-1.4.4",
       "nivel": "AAA",
-      "titulo": "Contraste (mejorado) AAA",
+      "titulo": "Contraste (mejorado)",
       "descripcion": "La presentación visual de texto e imágenes de texto debe tener una relación de contraste de al menos 7:1.",
       "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast7.html"
     },
     {
       "id": "AAA-1.4.5",
       "nivel": "AAA",
-      "titulo": "Audio de fondo bajo o nulo AAA",
+      "titulo": "Audio de fondo bajo o nulo",
       "descripcion": "Para contenido de audio pregrabado que se centra en la voz principal y no es un CAPTCHA de audio, un logotipo de audio ni una expresión vocal principalmente musical.",
       "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-noaudio.html"
     },
     {
       "id": "AAA-1.4.6",
       "nivel": "AAA",
-      "titulo": "Presentación visual AAA",
+      "titulo": "Presentación visual",
       "descripcion": "Para la presentación visual de bloques de texto, se dispone de un mecanismo para lograrlo",
       "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html"
     },
     {
       "id": "AAA-1.4.7",
       "nivel": "AAA",
-      "titulo": "Imágenes de texto (sin excepción) AAA",
+      "titulo": "Imágenes de texto (sin excepción)",
       "descripcion": "Las imágenes de texto solo se utilizan con fines puramente decorativos o cuando una presentación particular del texto es esencial para la información que se transmite.",
       "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-text-images.html"
     },
@@ -201,14 +201,14 @@
     {
       "id": "AAA-2.3.1",
       "nivel": "AAA",
-      "titulo": "Tres destellos AAA",
+      "titulo": "Tres destellos",
       "descripcion": "Las páginas web no contienen nada que parpadee más de tres veces en un período de un segundo.",
       "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure-three-times.html"
     },
     {
       "id": "AAA-2.4",
       "nivel": "AAA",
-      "titulo": "Orientación AAA",
+      "titulo": "Orientación",
       "descripcion": "No se deben bloquear ni orientar las actividades de navegación de manera que sean exclusivas de ciertas orientaciones de pantalla.",
       "web": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-orientation.html"
     }

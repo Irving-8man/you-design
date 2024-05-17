@@ -174,15 +174,17 @@ export default function Page({ params }: { params: { id: string } }) {
   return (
     <div className="flex flex-row justify-between px-6 pb-8">
       <section className="nowrap min-w-[450px] pt-6">
-        <div className="nowrap flex flex-row justify-between">
+        <div className="nowrap flex flex-col justify-between">
           <h1 className="text-[30px] font-bold">Colores</h1>
+          <p className='max-w-[40ch] text-zinc-600 text-[16px] mt-[16px]'>
+            Crea tu paleta de colores, comprueba su contraste con parámetros de la WCAG y copialo como CSS.
+          </p>
         </div>
 
         <article className="mt-[30px] rounded-xl border bg-card px-3 py-5 text-card-foreground shadow">
           <div className="p-6 pt-0">
             <div className="nowrap mb-4 flex flex-row justify-between">
-              <p className="text-[24px] font-medium">Paleta de colores</p>
-
+                <p className="text-[26px] font-medium">Paleta de colores</p>            
               {/**cuantos te quedan */}
               <TooltipProvider>
                 <Tooltip>

@@ -8,36 +8,24 @@ import {
 import { LanguageIcon} from '@heroicons/react/24/outline';
 
 
-interface AccessProps {
-  passSucees: number;
-}
-
 
 export default function CardTipog() {
-  const tipografias = [
-    { id: 1, nombre: 'Roboto'},
-    { id: 2, nombre: 'Times New Roman'},
-    { id: 3, nombre: 'Inter'}
-  ];
+  const tipografia = 'Roboto';
 
   return (
     <Card className="flex max-h-[230px] min-h-[210px] w-[300px] flex-col justify-between">
       <div>
         <CardHeader className="flex flex-row justify-between items-center pb-3">
-          <CardTitle className="text-[15px] font-medium">Tipografías</CardTitle>
+          <CardTitle className="text-[15px] font-medium">Tipografía</CardTitle>
           <LanguageIcon className="w-6 stroke-zinc-500" />
         </CardHeader>
         <CardContent>
-        <ul>
-            {tipografias.map((tipografia) => (
-              <li key={tipografia.id} className="font-medium text-[20px]">{tipografia.nombre}</li>
-            ))}
-        </ul>
+              <p className="font-medium text-[40px]">{tipografia}</p>
         </CardContent>
       </div>
       <CardFooter>
         <p className="text-[14px] text-zinc-700">
-          Familia de tipografias utilizada
+          Tipografía utilizada en el proyecto
         </p>
       </CardFooter>
     </Card>

@@ -84,7 +84,13 @@ export default function Page({ params }: { params: { id: string } }) {
   return (
     <div className="px-6 pb-8 pt-8">
       <div className="nowrap flex flex-row justify-between">
-        <h1 className="text-[30px] font-medium">Tipografía</h1>
+        <div className="flex row gap-[40px]">
+          <h1 className="text-[30px] font-bold">Tipografía</h1>
+          <p className="max-w-[50ch] text-[16px] text-zinc-600 ">
+            Resguarda tus tokens de tipografía y copia las recomendaciones de
+            tamaños y estilos basados en Material UI de Google como CSS.
+          </p>
+        </div>
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
@@ -107,7 +113,8 @@ export default function Page({ params }: { params: { id: string } }) {
         <form className="mt-[30px] rounded-xl border bg-card px-7 py-5 text-card-foreground shadow">
           <div className="p-6 pt-0">
             <div className="nowrap mb-4 flex flex-row justify-between">
-              <p className="text-[24px] font-bold">Información base</p>
+              <p className="text-[24px] font-medium">Información base</p>
+
               <div className="row nowrap flex gap-4">
                 <Button className="row flex gap-[5px]" type="submit">
                   Guardar

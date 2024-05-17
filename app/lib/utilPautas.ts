@@ -6,6 +6,7 @@ export type PautaAcces= {
   titulo: string;
   descripcion: string;
   web: string;
+  completed:boolean
 };
 
 
@@ -18,6 +19,7 @@ export default function getListPautas():PautaAcces[]{
       titulo: pauta.titulo,
       descripcion: pauta.descripcion,
       web: pauta.web,
+      completed:false,
     }));
   }catch{
     throw new Error('Error de petición de pautas')

@@ -12,11 +12,11 @@ import { CheckCircleIcon } from '@heroicons/react/24/outline';
 
 
 interface AccessProps {
-  passSucees: number;
+  porcen: number;
 }
 
 
-export default function CardAcces() {
+export default function CardAcces({porcen}:AccessProps) {
   return (
     <Card className="flex max-h-[220px] min-h-[200px] w-[300px] flex-col justify-between">
       <div>
@@ -25,8 +25,8 @@ export default function CardAcces() {
           <CheckCircleIcon className="w-6 stroke-zinc-500" />
         </CardHeader>
         <CardContent>
-          <p><span className="text-[27px] font-bold">33%</span></p>
-          <Progress value={33} />
+          <p><span className="text-[27px] font-bold">{porcen}%</span></p>
+          <Progress value={porcen} />
         </CardContent>
       </div>
       <CardFooter>
