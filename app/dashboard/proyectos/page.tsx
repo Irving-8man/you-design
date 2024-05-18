@@ -28,8 +28,10 @@ import { CreateTask, updateTask } from '@/app/actions/tasks-actions';
 import { Task } from '@prisma/client';
 
 async function totalProyectos() {
-  return 1;
+  const proyectosCount = await prisma.task.count();
+  return proyectosCount;
 }
+
 
 export default async function ProyectosPage({ task }: { task?: Task }) {
   //hooks
@@ -46,7 +48,7 @@ export default async function ProyectosPage({ task }: { task?: Task }) {
         <div className="row flex gap-[30px]">
           <Dialog>
             <DialogTrigger asChild>
-              <Button className="gap-3">
+              <Button className="gap-3" disabled={proyectos >= 3}>
                 <div>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

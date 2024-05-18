@@ -23,7 +23,7 @@ export async function CreateTask(formData : FormData){
     })
 
     console.log(newTask)
-    redirect('/')
+    redirect('/dashboard/proyectos')
   }
 
   export async function removeTask(formData: FormData){
@@ -40,7 +40,7 @@ export async function CreateTask(formData : FormData){
         }
     })
 
-    revalidatePath('/')
+    revalidatePath('/dashboard/proyectos')
 
 }
 
@@ -63,5 +63,5 @@ export async function updateTask(formData: FormData) {
       }
     });
     
-    redirect("/");
+    redirect("/dashboard/proyectos");
   }
