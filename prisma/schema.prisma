@@ -12,9 +12,9 @@ datasource db {
 
 model Usuario {
   id               String     @id @default(cuid())
-  nombreUsuario    String?
+  nombreUsuario    String
   email            String     @unique
-  password         String?
+  password         String
   limitProyectos   Int        @default(3)
   fechaCreacion    DateTime   @default(now())
   fechaActualizada DateTime   @updatedAt
