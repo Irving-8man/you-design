@@ -102,7 +102,7 @@ export default async function ProyectosPage({ task }: { task?: Task }) {
                 </Button>
               </TooltipTrigger>
               <TooltipContent>
-                <p> Proyectos creados</p>
+                <p> Proyectos creados </p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>

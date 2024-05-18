@@ -1,3 +1,4 @@
+import DashboardLayout from "@/app/dashboard/layout";
 import ProyectosPage from "@/app/dashboard/proyectos/page";
 import prisma from "@/lib/prisma";
 import { redirect } from "next/navigation";
@@ -14,8 +15,10 @@ export default async function TaskPageEdit({ params }: { params: { id: string } 
   }
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <ProyectosPage task={task} />
-    </div>
+    <DashboardLayout>
+      <div>
+        <ProyectosPage task={task} />
+      </div>
+    </DashboardLayout>
   );
 }
