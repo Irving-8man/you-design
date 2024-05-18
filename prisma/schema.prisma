@@ -10,12 +10,79 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Usuario {
+  id               String     @id @default(cuid())
+  nombreUsuario    String?
+  email            String     @unique
+  password         String?
+  limitProyectos   Int        @default(3)
+  fechaCreacion    DateTime   @default(now())
+  fechaActualizada DateTime   @updatedAt
+  Sesion           Sesion?
+  proyectos        Proyecto[]
+}
 
-model usuario {
-  id             Int      @id @default(autoincrement())
-  nombreUsuario  String   
-  email          String   @unique
-  password       String   
-  fechaCreacion  DateTime @default(now())
-  fechaActualizada DateTime @updatedAt
+model Sesion {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  expira       DateTime
+  usuario      Usuario  @relation(fields: [idUsuario], references: [id], onDelete: Cascade)
+  idUsuario    String   @unique
+}
+
+model Proyecto {
+  id             String       @id @default(cuid())
+  nombreProyecto String
+  descripcion    String
+  creadoPor      Usuario?     @relation(fields: [idUsuario], references: [id], onDelete: Cascade)
+  idUsuario      String
+  fechaCreacion  DateTime     @default(now())
+  paletaColor    PaletaColor?
+  pautasCheck    PautasCheck?
+  tipografia     Tipografia?
+
+  @@index([idUsuario])
+}
+
+model PaletaColor {
+  id         String   @id @default(cuid())
+  paleta     String
+  proyecto   Proyecto @relation(fields: [idProyecto], references: [id], onDelete: Cascade)
+  idProyecto String   @unique
+
+  @@index([idProyecto])
+}
+
+model PautasCheck {
+  id          String   @id @default(cuid())
+  pautasCheck String   @unique
+  proyecto    Proyecto @relation(fields: [idProyecto], references: [id], onDelete: Cascade)
+  idProyecto  String   @unique
+
+  @@index([idProyecto])
+}
+
+model Tipografia {
+  id           String   @id @default(cuid())
+  fuenteBase   String
+  size         Int
+  ratio        Int
+  interlineado Int
+  proyecto     Proyecto @relation(fields: [idProyecto], references: [id], onDelete: Cascade)
+  idProyecto   String   @unique
+
+  @@index([idProyecto])
+}
+
+model Pautas {
+  id         String      @id
+  nombre     String
+  nivelPauta NivelPautas @relation(fields: [nivel], references: [id], onDelete: Cascade)
+  nivel      String      @unique
+}
+
+model NivelPautas {
+  id     String  @id @default(cuid())
+  nivel  String  @unique
+  pautas Pautas?
 }

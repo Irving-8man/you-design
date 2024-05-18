@@ -15,7 +15,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
     // Simula la obtención de pautas completadas desde la API
     //const completedPautas = ['A-1.2', 'A-1.1'];
-    const completedPautas:string[] = [];  
+    const completedPautas:string[] = ['A-1.2', 'A-1.1'];  
     setPautasList((prevList) =>
       prevList.map((pauta) => ({
         ...pauta,
