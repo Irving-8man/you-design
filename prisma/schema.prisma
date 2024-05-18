@@ -18,17 +18,9 @@ model Usuario {
   limitProyectos   Int        @default(3)
   fechaCreacion    DateTime   @default(now())
   fechaActualizada DateTime   @updatedAt
-  Sesion           Sesion?
   proyectos        Proyecto[]
 }
 
-model Sesion {
-  id           String   @id @default(cuid())
-  sessionToken String   @unique
-  expira       DateTime
-  usuario      Usuario  @relation(fields: [idUsuario], references: [id], onDelete: Cascade)
-  idUsuario    String   @unique
-}
 
 model Proyecto {
   id             String       @id @default(cuid())

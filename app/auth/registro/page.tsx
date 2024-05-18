@@ -3,36 +3,33 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { Button } from '@/app/components/button';
-import { Form, FormControl, FormField, FormItem, FormLabel,FormMessage,FormDescription,} from '@/app/components/form';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+  FormDescription,
+} from '@/app/components/form';
 import { Input } from '@/app/components/input';
 import { Card, CardContent } from '@/app/components/card';
 import { formSchema } from '@/app/lib/formsZod';
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import Header from '@/app/ui/layout/header-index';
 import Footer from '@/app/ui/layout/footer-index';
 import Link from 'next/link';
 
-
 export default function Page() {
-  //Estilos
-  const classMain = 'min-h-[100vh] flex flex-col justify-between py-15';
-  const classMain__contentForm = 'flex flex-row justify-center mt-5 mb-20';
-  const classMain__contentForm_sec = "flex flex-col nowrap justify-center gap-4";
   const classMain__form = 'w-[400px]';
-  const classMain__title = "text-2xl font-bold";
+  const classMain__title = 'text-2xl font-bold';
   const classMain__form_contBut = 'flex flex-row items-end gap-[10px]';
   const classMain__Exter = 'flex flex-row nowrap text-[15px] gap-[5px]';
   const classMain__Link_Re = 'underline hover:no-underline';
-  //Estados de registro
-  const STATUS_REGISTRO = {
 
-  }
+  const router = useRouter();
 
-  //hooks
-  const router = useRouter()
-
-  // 1. Define tu form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -43,32 +40,36 @@ export default function Page() {
     },
   });
 
-  // 2. Define un submit handler.
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    const res = await fetch('/api/auth/register',{
-      method:'POST',
-      body:JSON.stringify({
-        nombreUsuario:values.nombreUsuario,
-        email:values.email,
-        password:values.password,
-      }),
-      headers:{
-        'Content-type':'aplication/json'
-      }
-    })
 
-    if(res.ok){
-        router.push('/auth/login')
-    }else{
-      console.log(res)
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      const res = await fetch('/api/auth/register', {
+        method: 'POST',
+        body: JSON.stringify({
+          nombreUsuario: values.nombreUsuario,
+          email: values.email,
+          password: values.password,
+        }),
+        headers: {
+          'Content-type': 'aplication/json',
+        },
+      });
+
+      if (res.ok) {
+        router.push('/auth/login');
+      } else {
+        console.log(res);
+      }
+    } catch (error) {
+      
     }
   }
 
   return (
-    <main className={classMain}>
+    <main className="min-h-[100vh] flex flex-col justify-between py-15">
       <Header />
-      <div className={classMain__contentForm}>
-        <section className={classMain__contentForm_sec}>
+      <div className="flex flex-row justify-center mt-5 mb-20">
+        <section className="flex flex-col nowrap justify-center gap-4">
           <h1 className={classMain__title}>Registrar</h1>
           <div className={classMain__form}>
             <Card className="py-5">
@@ -89,7 +90,7 @@ export default function Page() {
                             <Input placeholder="Galletazo" {...field} />
                           </FormControl>
                           <FormDescription>
-                              Mínimo 8 caracteres.
+                            Mínimo 8 caracteres.
                           </FormDescription>
                           <FormMessage />
                         </FormItem>
@@ -128,7 +129,7 @@ export default function Page() {
                             />
                           </FormControl>
                           <FormDescription>
-                              Mínimo 8 caracteres.
+                            Mínimo 8 caracteres.
                           </FormDescription>
                           <FormMessage />
                         </FormItem>
@@ -152,13 +153,15 @@ export default function Page() {
                         </FormItem>
                       )}
                     />
-                  <div className={classMain__form_contBut}>
+                    <div className={classMain__form_contBut}>
                       <Button type="submit">Registrar</Button>
                       <div className={classMain__Exter}>
                         <p>¿Ya tienes cuenta?</p>
-                        <Link href="/auth/login" className={classMain__Link_Re}>Iniciar sesión</Link>
+                        <Link href="/auth/login" className={classMain__Link_Re}>
+                          Iniciar sesión
+                        </Link>
                       </div>
-                  </div>
+                    </div>
                   </form>
                 </Form>
               </CardContent>
