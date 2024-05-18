@@ -17,18 +17,16 @@ import { Card, CardContent } from '@/app/components/card';
 import { formSchema } from '@/app/lib/formsZod';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { useToast } from '@/app/components/use-toast';
+import { ReloadIcon } from '@radix-ui/react-icons';
 import Header from '@/app/ui/layout/header-index';
 import Footer from '@/app/ui/layout/footer-index';
 import Link from 'next/link';
 
 export default function Page() {
-  const classMain__form = 'w-[400px]';
-  const classMain__title = 'text-2xl font-bold';
-  const classMain__form_contBut = 'flex flex-row items-end gap-[10px]';
-  const classMain__Exter = 'flex flex-row nowrap text-[15px] gap-[5px]';
-  const classMain__Link_Re = 'underline hover:no-underline';
-
   const router = useRouter();
+  const { toast } = useToast();
+  const [loading, setLoading] = useState<boolean>(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -40,9 +38,9 @@ export default function Page() {
     },
   });
 
-
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
+      setLoading(true);
       const res = await fetch('/api/auth/register', {
         method: 'POST',
         body: JSON.stringify({
@@ -56,22 +54,39 @@ export default function Page() {
       });
 
       if (res.ok) {
+        toast({
+          title: 'Bienvenido a YouDesign',
+          description:
+            'Ya puedes iniciar sesión.',
+        });
         router.push('/auth/login');
       } else {
-        console.log(res);
+        setLoading(false);
+        const errorData = await res.json();
+        toast({
+          variant: 'destructive',
+          title: 'Oh no!, algo falló',
+          description:
+            errorData.message ||
+            'Hubo un problema con tu registro. Inténtalo de nuevo.',
+        });
       }
     } catch (error) {
-      
+      setLoading(false);
+      toast({
+        variant: 'destructive',
+        title: 'Oh no!, Fallo el registro, intentalo de nuevo',
+      });
     }
   }
 
   return (
-    <main className="min-h-[100vh] flex flex-col justify-between py-15">
+    <main className="py-15 flex min-h-[100vh] flex-col justify-between">
       <Header />
-      <div className="flex flex-row justify-center mt-5 mb-20">
-        <section className="flex flex-col nowrap justify-center gap-4">
-          <h1 className={classMain__title}>Registrar</h1>
-          <div className={classMain__form}>
+      <div className="mb-20 mt-5 flex flex-row justify-center">
+        <section className="nowrap flex flex-col justify-center gap-4">
+          <h1 className="text-2xl font-bold">Registrar</h1>
+          <div className="w-[400px]">
             <Card className="py-5">
               <CardContent>
                 <Form {...form}>
@@ -153,11 +168,24 @@ export default function Page() {
                         </FormItem>
                       )}
                     />
-                    <div className={classMain__form_contBut}>
-                      <Button type="submit">Registrar</Button>
-                      <div className={classMain__Exter}>
+                    <div className="flex flex-row items-center gap-[10px]">
+                      <Button
+                        type="submit"
+                        variant="outline"
+                        disabled={loading}
+                        className="flex flex-row gap-[5px]"
+                      >
+                        {loading && (
+                          <ReloadIcon className="animate-spin w-3" />
+                        )}
+                        Registrar
+                      </Button>
+                      <div className="nowrap flex flex-row gap-[5px] text-[15px]">
                         <p>¿Ya tienes cuenta?</p>
-                        <Link href="/auth/login" className={classMain__Link_Re}>
+                        <Link
+                          href="/auth/login"
+                          className="underline hover:no-underline"
+                        >
                           Iniciar sesión
                         </Link>
                       </div>

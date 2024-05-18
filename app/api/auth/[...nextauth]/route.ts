@@ -12,17 +12,13 @@ const authOptions = {
         password: { label: "Password", type: "password", placeholder:"********"}
       },
       async authorize(credentials,req){
-
-        //1 recibir credenciales
         if(credentials !== undefined){
-          //2 comprobar existencia
           const userEncontrado = await db.usuario.findUnique({
             where:{
               email:credentials.email
             }
           })
 
-          // 3 devolver resultado
           if(!userEncontrado) throw new Error('Usuario no encontrado') 
       
           const validado = await verificarPassword(credentials.password,userEncontrado.password)
