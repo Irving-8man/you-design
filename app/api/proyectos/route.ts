@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import db from '@/lib/db';
-import { formSchemaProyect, formSchemaEditProyect } from '@/lib/apisZod';
+import { formSchemaProyect, formSchemaEditProyect,DeleteProyectSchema } from '@/lib/apisZod';
 
 export async function POST(request: Request) {
   const LIMIT_PROYECTS = 3;
@@ -88,7 +88,6 @@ export async function PUT(request: Request) {
       );
     }
 
-    // Update link:
     await db.proyecto.update({
       where: { id: data.id },
       data: {
@@ -97,6 +96,25 @@ export async function PUT(request: Request) {
       },
     });
 
+    console.log(req);
+    return NextResponse.json({ status: 201 });
+  } catch (error) {
+    if (error instanceof Error) {
+      return NextResponse.json({ message: error.message }, { status: 500 });
+    }
+  }
+}
+
+
+export async function DELETE(request:Request){
+  try {
+    const req = await request.json();
+    const data = DeleteProyectSchema.parse(req);
+    
+    const result = await db.proyecto.delete({
+      where: { id:data.idProyect, idUsuario: data.idUser },
+    });
+  
     console.log(req);
     return NextResponse.json({ status: 201 });
   } catch (error) {

@@ -98,6 +98,7 @@ export default async function ProyectosPage() {
             idProyect={proyecto.id}
             nombre={proyecto.nombreProyecto}
             descripcion={proyecto.descripcion}
+            idUser={session.user.id}
           />
         ))}
       </section>

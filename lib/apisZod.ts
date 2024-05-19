@@ -39,4 +39,7 @@ export const formSchemaEditProyect = z.object({
   }),
 });
 
-
+export const DeleteProyectSchema = z.object({
+  idProyect: z.string().min(1, { message: "Proyecto querido." }),
+  idUser: z.string(),
+});

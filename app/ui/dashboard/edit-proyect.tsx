@@ -8,7 +8,6 @@ import { Button } from '@/app/components/button';
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -81,14 +80,14 @@ export default function EditProyect(props: EditProyectProps) {
           variant: 'destructive',
           title: 'Oh no!, algo falló',
           description:
-            errorData.message || 'Hubo un problema con crear un proyecto',
+            errorData.message || 'Hubo un problema con actualizar proyecto',
         });
       }
       
     } catch (error) {
       toast({
         variant: 'destructive',
-        title: 'Oh no!, Fallo crear un nuevo proyecto',
+        title: 'Oh no!, Fallo actulizar proyecto',
       });
     } finally {
       setLoading(false);

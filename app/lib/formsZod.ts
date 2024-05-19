@@ -54,3 +54,9 @@ export const formSchemaEditProyect = z.object({
     message: "Se ha pasado de 100 caracteres",
   }),
 });
+
+
+export const DeleteProyectSchema = z.object({
+  idProyect: z.string().min(1, { message: "Proyecto querido." }),
+  idUser: z.string(),
+});
