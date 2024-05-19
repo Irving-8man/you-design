@@ -3,35 +3,27 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Button } from '@/app/components/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/app/components/tooltip';
 import Footer from '@/app/ui/layout/footer-index';
-import { Input } from '@/app/components/input';
-import { Label } from '@/app/components/label';
-import { Textarea } from '@/app/components/textArea';
 import CardProyect from '@/app/ui/dashboard/card-proy';
 import prisma from '@/lib/db';
-import { CreateTask, updateTask } from '@/app/actions/tasks-actions';
 import { Task } from '@prisma/client';
 import NewPage from './NewPage';
-
 
 async function totalProyectos() {
   const proyectosCount = await prisma.task.count();
   return proyectosCount;
 }
 
-export default async function ProyectosPage({ task }: { task?: Task }) {
+export default async function ProyectosPage({ task, isOpen }: { task?: Task; isOpen: boolean }) {
   const tasks = await prisma.task.findMany();
-  console.log(tasks);
-
-  let proyectos = await totalProyectos();
+  const proyectos = await totalProyectos();
 
   return (
     <div className="px-6 pt-8">
-      {/**Seccion superior*/}
       <div className="flex justify-start">
         <div className="row flex gap-[30px]">
-          <Dialog>
+          <Dialog open={isOpen}>
             <DialogTrigger asChild>
-              <Button className="gap-3" disabled={proyectos >= 3}>
+              <Button className="gap-3" disabled={proyectos >= 3} >
                 <div>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -93,8 +85,7 @@ export default async function ProyectosPage({ task }: { task?: Task }) {
           </TooltipProvider>
         </div>
       </div>
-      {/**Seccion de proyectos */}
-      <section className=" my-[50px]  min-h-[325px] ">
+      <section className="my-[50px] min-h-[325px]">
         <div className="grid grid-cols-3 gap-y-[50px]">
           {tasks.map((task) => (
             <CardProyect task={task} key={task.id} />

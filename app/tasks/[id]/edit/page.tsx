@@ -1,5 +1,6 @@
 import DashboardLayout from "@/app/dashboard/layout";
-import ProyectosPage from "@/app/dashboard/proyectos/page";
+import ProyectosPage from "@/app/dashboard/proyectos/page-edit";
+
 import prisma from "@/lib/prisma";
 import { redirect } from "next/navigation";
 
@@ -17,7 +18,8 @@ export default async function TaskPageEdit({ params }: { params: { id: string } 
   return (
     <DashboardLayout>
       <div>
-        <ProyectosPage task={task} />
+        <ProyectosPage task={task} isOpen={!!task}/>
+        
       </div>
     </DashboardLayout>
   );
