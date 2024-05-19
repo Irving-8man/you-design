@@ -41,8 +41,8 @@ export default async function ProyectosPage() {
       {/**Seccion superior*/}
       <div className="flex justify-start">
         <div className="row flex gap-[30px]">
-          <Dialog>
-            <DialogTrigger asChild>
+          {session !== null ? (
+            <CreateProyect idUsuario={session.user.id}>
               <Button className="gap-3">
                 <div>
                   <svg
@@ -62,39 +62,10 @@ export default async function ProyectosPage() {
                 </div>
                 Nuevo proyecto
               </Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
-              <DialogHeader>
-                <DialogTitle>Crear nuevo</DialogTitle>
-                <DialogDescription>
-                  Agrega un nuevo proyecto para dar seguimiento.
-                </DialogDescription>
-              </DialogHeader>
-              <div className="grid gap-4 py-4">
-                <div className="nowrap flex flex-col items-start justify-start gap-4">
-                  <Label htmlFor="name" className="text-right">
-                    Nombre
-                  </Label>
-                  <Input id="name" value="" className="col-span-3" />
-                </div>
-                <div className="nowrap flex flex-col items-start justify-start gap-4">
-                  <Label htmlFor="username" className="text-right">
-                    Descripción
-                    <span className="text-zinc-400"> (Opcional)</span>
-                  </Label>
-                  <Textarea id="username" value="" className="col-span-3" />
-                </div>
-              </div>
-              <DialogFooter>
-                <DialogClose asChild>
-                  <Button type="button" variant="secondary">
-                    Cancelar
-                  </Button>
-                </DialogClose>
-                <Button type="submit">Crear</Button>
-              </DialogFooter>
-            </DialogContent>
-          </Dialog>
+            </CreateProyect>
+          ) : (
+            <div>Error</div>
+          )}
           {/**cuantos te quedan */}
           <TooltipProvider>
             <Tooltip>
@@ -125,31 +96,6 @@ export default async function ProyectosPage() {
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
-          {session !== null ? (
-            <CreateProyect idUsuario={session.user.id}>
-              <Button className="gap-3">
-                <div>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="h-5 w-5"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 4.5v15m7.5-7.5h-15"
-                    />
-                  </svg>
-                </div>
-                Nuevo proyecto
-              </Button>
-            </CreateProyect>
-          ) : (
-            <div>Error</div>
-          )}
         </div>
       </div>
       {/**Seccion de proyectos */}

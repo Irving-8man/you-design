@@ -142,11 +142,11 @@ export function CreateProyect(props: CreateProyectProps) {
                   Cancelar
                 </Button>
               </DialogClose>
-              <Button type="submit" disabled={loading}>
+              <Button type="submit" disabled={loading} className="flex gap-[8px]">
                 {loading && (
                   <ReloadIcon className="animate-spin w-3" />
                 ) }
-                <span>{loading ? 'Creando...' : 'Crear'}</span>
+                <span className="block" >{loading ? 'Creando...' : 'Crear'}</span>
               </Button>
             </DialogFooter>
           </form>
