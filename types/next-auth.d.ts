@@ -12,6 +12,7 @@ declare module "next-auth" {
       id: string;
       nombreUsuario: string;
       email: string;
+      limitProyectos: numeric
     } & DefaultSession["user"];
   }
 }
@@ -21,5 +22,6 @@ declare module "next-auth/jwt" {
     id: string;
     nombreUsuario: string;
     email: string;
+    limitProyectos: numeric;
   }
 }

@@ -31,3 +31,11 @@ export const formSchemaAjustes = z.object({
   }),
 });
 
+
+
+export const formSchemaProyect = z.object({
+  nombreProyecto: z.string().min(1, {
+    message: "El nombre no debe estar vacio",
+  }),
+  descripcion: z.string(),
+});

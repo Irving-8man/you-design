@@ -38,7 +38,7 @@ export async function POST(request: Request) {
 
     const { password: _, ...user } = nuevoUsuario;
 
-    return NextResponse.json(user, { status: 201 })
+    return NextResponse.json({ status: 201 })
   } catch (error) {
     if (error instanceof Error) {
       return NextResponse.json({ message: error.message }, { status: 500 });

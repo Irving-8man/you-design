@@ -1,5 +1,6 @@
-//import { getServerSession } from 'next-auth'
-//import ButtonSignout from '@/app/components/button-signout'
+import { getServerSession } from 'next-auth/next';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { getLimitAndNumProyectsByUser } from '@/app/server/query/index';
 import Footer from '@/app/ui/layout/footer-index';
 import { Button } from '@/app/components/button';
 import {
@@ -21,20 +22,19 @@ import {
 import { Input } from '@/app/components/input';
 import { Label } from '@/app/components/label';
 import { Textarea } from '@/app/components/textArea';
-
 import CardProyect from '@/app/ui/dashboard/card-proy';
-
+import { CreateProyect } from '@/app/ui/dashboard/create-proyect';
 
 export default async function ProyectosPage() {
-  //hooks
-  //const session = await getServerSession()
+  const session = await getServerSession(authOptions);
 
-  const proyectos = 1;
   const LISTPROYECTOS = [
-    {id:1,idUser:2,nombre:"ARETEO",descripcion:"Uno proyecto mas1"},
-    {id:2,idUser:2,nombre:"CRESPO",descripcion:"Uno proyecto mas2"},
-    {id:3,idUser:2,nombre:"SSASA",descripcion:"Uno proyecto mas2"}
-  ]
+    { id: 1, idUser: 2, nombre: 'ARETEO', descripcion: 'Uno proyecto mas1' },
+    { id: 2, idUser: 2, nombre: 'CRESPO', descripcion: 'Uno proyecto mas2' },
+    { id: 3, idUser: 2, nombre: 'SSASA', descripcion: 'Uno proyecto mas2' },
+  ];
+
+  const data = await getLimitAndNumProyectsByUser();
 
   return (
     <div className="px-6 pt-8">
@@ -117,7 +117,7 @@ export default async function ProyectosPage() {
                       />
                     </svg>
                   </div>{' '}
-                  0{proyectos}/03
+                  0{data?.numProyects}/0{data?.limit}
                 </Button>
               </TooltipTrigger>
               <TooltipContent>
@@ -125,13 +125,38 @@ export default async function ProyectosPage() {
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
+          {session !== null ? (
+            <CreateProyect idUsuario={session.user.id}>
+              <Button className="gap-3">
+                <div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="h-5 w-5"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 4.5v15m7.5-7.5h-15"
+                    />
+                  </svg>
+                </div>
+                Nuevo proyecto
+              </Button>
+            </CreateProyect>
+          ) : (
+            <div>Error</div>
+          )}
         </div>
       </div>
       {/**Seccion de proyectos */}
       <section className="nowrap my-[50px] grid min-h-[325px] grid-cols-3 ">
-        <CardProyect />
-        <CardProyect />
-        <CardProyect />
+        {LISTPROYECTOS.map((proyecto) => (
+          <CardProyect key={proyecto.id} />
+        ))}
       </section>
       <Footer />
     </div>

@@ -23,6 +23,12 @@ import Header from '@/app/ui/layout/header-index';
 import Footer from '@/app/ui/layout/footer-index';
 import Link from 'next/link';
 
+
+
+
+
+
+
 export default function Page() {
   const router = useRouter();
   const { toast } = useToast();
@@ -52,7 +58,8 @@ export default function Page() {
           'Content-type': 'aplication/json',
         },
       });
-
+      
+      form.reset();
       if (res.ok) {
         toast({
           title: 'Bienvenido a YouDesign',

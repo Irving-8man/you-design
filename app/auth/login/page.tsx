@@ -46,6 +46,7 @@ export default function Page() {
         redirect: false,
       });
 
+      form.reset();
       if (res !== undefined) {
         if (res.ok) {
           toast({

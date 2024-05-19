@@ -16,3 +16,13 @@ export const usuarioLoginSchema = z.object({
   email: z.string().email({ message: "Invalido email." }),
   password: z.string().min(8, {message: "El password debe tener mínimo 8 caracteres.",})
 }); 
+
+
+export const formSchemaProyect = z.object({
+  nombreProyecto: z.string().min(1, {
+    message: "El nombre no debe estar vacio",
+  }),
+  descripcion: z.string(),
+  idUs:z.string(),
+});
+

@@ -39,6 +39,7 @@ export const authOptions = {
             id: userEncontrado.id,
             nombreUsuario: userEncontrado.nombreUsuario,
             email: userEncontrado.email,
+            limitProyectos:userEncontrado.limitProyectos,
           };
         } else {
           throw new Error('No llegaron credenciales');
@@ -51,16 +52,19 @@ export const authOptions = {
   },
   callbacks: {
     jwt({ token, user }) {
-      if (user) { // User is available during sign-in
-        token.id = user.id
-        token.nombreUsuario = user.nombreUsuario
+      if (user) {
+        // User is available during sign-in
+        token.id = user.id;
+        token.nombreUsuario = user.nombreUsuario;
+        token.limitProyectos = user.limitProyectos;
       }
-      return token
+      return token;
     },
     session({ session, token }) {
-      session.user.id = token.id
-      session.user.nombreUsuario = token.nombreUsuario
-      return session
+      session.user.id = token.id;
+      session.user.nombreUsuario = token.nombreUsuario;
+      session.user.limitProyectos = token.limitProyectos;
+      return session;
     },
   },
 };

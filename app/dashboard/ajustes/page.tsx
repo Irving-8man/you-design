@@ -18,6 +18,10 @@ import { formSchema } from '@/app/lib/formsZod';
 import Link from 'next/link';
 import Footer from '@/app/ui/layout/footer-index';
 import Save from '@/app/ui/icons/save';
+import { getSession } from 'next-auth/react';
+import { useEffect } from 'react';
+
+
 
 export default function Page() {
   //Estilos
@@ -38,6 +42,7 @@ export default function Page() {
     },
   });
 
+
   async function onSubmitAct(values: z.infer<typeof formSchema>) {
     console.log('actualizando');
   }
@@ -47,7 +52,7 @@ export default function Page() {
       {/**comienza edicion */}
       <div>
         {/**cuenta */}
-        <div className={classMain__form}>
+        <div className="w-[1000px]">
           <Card className="py-3">
             <CardContent>
               <div className="mb-4">
