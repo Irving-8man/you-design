@@ -9,19 +9,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/app/components/tooltip';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-  DialogClose,
-} from '@/app/components/dialog';
-import { Input } from '@/app/components/input';
-import { Label } from '@/app/components/label';
-import { Textarea } from '@/app/components/textArea';
 import CardProyect from '@/app/ui/dashboard/card-proy';
 import { CreateProyect } from '@/app/ui/dashboard/create-proyect';
 
@@ -29,9 +16,9 @@ export default async function ProyectosPage() {
   const session = await getServerSession(authOptions);
 
   const LISTPROYECTOS = [
-    { id: 1, idUser: 2, nombre: 'ARETEO', descripcion: 'Uno proyecto mas1' },
-    { id: 2, idUser: 2, nombre: 'CRESPO', descripcion: 'Uno proyecto mas2' },
-    { id: 3, idUser: 2, nombre: 'SSASA', descripcion: 'Uno proyecto mas2' },
+    { id: 1, nombre: 'ARETEO', descripcion: 'Uno proyecto mas1' },
+    { id: 2, nombre: 'CRESPO', descripcion: 'Uno proyecto mas2' },
+    { id: 3, nombre: 'SSASA', descripcion: 'Uno proyecto mas2' },
   ];
 
   const data = await getLimitAndNumProyectsByUser();
@@ -43,25 +30,30 @@ export default async function ProyectosPage() {
         <div className="row flex gap-[30px]">
           {session !== null ? (
             <CreateProyect idUsuario={session.user.id}>
-              <Button className="gap-3">
-                <div>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="h-5 w-5"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 4.5v15m7.5-7.5h-15"
-                    />
-                  </svg>
-                </div>
-                Nuevo proyecto
-              </Button>
+              {data?.numProyects !== undefined && (
+                <Button
+                  className="gap-3"
+                  disabled={data?.limit < data?.numProyects}
+                >
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 4.5v15m7.5-7.5h-15"
+                      />
+                    </svg>
+                  </div>
+                  Nuevo proyecto
+                </Button>
+              )}
             </CreateProyect>
           ) : (
             <div>Error</div>
@@ -100,8 +92,13 @@ export default async function ProyectosPage() {
       </div>
       {/**Seccion de proyectos */}
       <section className="nowrap my-[50px] grid min-h-[325px] grid-cols-3 ">
-        {LISTPROYECTOS.map((proyecto) => (
-          <CardProyect key={proyecto.id} />
+        {data?.proyectos.map((proyecto) => (
+          <CardProyect
+            key={proyecto.id}
+            idProyect={proyecto.id}
+            nombre={proyecto.nombreProyecto}
+            descripcion={proyecto.descripcion}
+          />
         ))}
       </section>
       <Footer />

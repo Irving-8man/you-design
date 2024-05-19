@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import db from '@/lib/db';
-import { formSchemaProyect } from '@/lib/apisZod';
+import { formSchemaProyect, formSchemaEditProyect } from '@/lib/apisZod';
 
 export async function POST(request: Request) {
   const LIMIT_PROYECTS = 3;
@@ -45,22 +45,59 @@ export async function POST(request: Request) {
         nombreProyecto: data.nombreProyecto,
         descripcion: data.descripcion,
         idUsuario: data.idUs,
-        paletaColor:{
-          create:{
-          }
+        paletaColor: {
+          create: {},
         },
-        tipografia :{
-          create:{
-          }
+        tipografia: {
+          create: {},
         },
-        pautasCheck:{
-          create:{
-          }
-        }
+        pautasCheck: {
+          create: {},
+        },
       },
     });
 
     console.log(nuevoProyecto);
+    return NextResponse.json({ status: 201 });
+  } catch (error) {
+    if (error instanceof Error) {
+      return NextResponse.json({ message: error.message }, { status: 500 });
+    }
+  }
+}
+
+export async function PUT(request: Request) {
+  try {
+    const req = await request.json();
+    const data = formSchemaEditProyect.parse(req);
+
+    const proyectoEncontrado = await db.proyecto.findUnique({
+      where: {
+        id: data.id,
+      },
+    });
+
+    if (!proyectoEncontrado) {
+      return NextResponse.json(
+        {
+          message: 'El proyecto no existe',
+        },
+        {
+          status: 400,
+        },
+      );
+    }
+
+    // Update link:
+    await db.proyecto.update({
+      where: { id: data.id },
+      data: {
+        nombreProyecto: data.nombreProyecto,
+        descripcion: data.descripcion,
+      },
+    });
+
+    console.log(req);
     return NextResponse.json({ status: 201 });
   } catch (error) {
     if (error instanceof Error) {

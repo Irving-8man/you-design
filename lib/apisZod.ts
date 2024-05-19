@@ -22,7 +22,21 @@ export const formSchemaProyect = z.object({
   nombreProyecto: z.string().min(1, {
     message: "El nombre no debe estar vacio",
   }),
-  descripcion: z.string(),
+  descripcion: z.string().max(100, {
+    message: "Se ha pasado de 100 caracteres",
+  }),
   idUs:z.string(),
 });
+
+
+export const formSchemaEditProyect = z.object({
+  id: z.string(),
+  nombreProyecto: z.string().min(1, {
+    message: "El nombre no debe estar vacio",
+  }),
+  descripcion: z.string().max(100, {
+    message: "Se ha pasado de 100 caracteres",
+  }),
+});
+
 

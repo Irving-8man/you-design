@@ -25,53 +25,54 @@ import {
 } from '@/app/components/form';
 import { Input } from '@/app/components/input';
 import { Textarea } from '@/app/components/textArea';
-import { formSchemaProyect } from '@/app/lib/formsZod';
+import { formSchemaEditProyect } from '@/app/lib/formsZod';
 import { useToast } from '@/app/components/use-toast';
 import { ReloadIcon } from '@radix-ui/react-icons';
 import { useRouter } from 'next/navigation';
 
-interface CreateProyectProps {
-  children: ReactNode;
-  idUsuario: string;
+interface EditProyectProps {
+  trigger: ReactNode;
+  idProyect: string;
+  nombre: string;
+  descripcion: string;
 }
 
-export function CreateProyect(props: CreateProyectProps) {
+export default function EditProyect(props: EditProyectProps) {
   const [loading, setLoading] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
   const router = useRouter();
 
   const { toast } = useToast();
 
-  const form = useForm<z.infer<typeof formSchemaProyect>>({
-    resolver: zodResolver(formSchemaProyect),
+  const form = useForm<z.infer<typeof formSchemaEditProyect>>({
+    resolver: zodResolver(formSchemaEditProyect),
     defaultValues: {
-      idUsuario: props.idUsuario ?? "",
-      nombreProyecto: '',
-      descripcion: '',
+      id: props.idProyect,
+      nombreProyecto: props.nombre,
+      descripcion: props.descripcion,
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof formSchemaProyect>) => {
+  const onSubmit = async (values: z.infer<typeof formSchemaEditProyect>) => {
     try {
       setLoading(true);
-      const res = await fetch('/api/proyectos', {
-        method: 'POST',
+      const res = await fetch(`/api/proyectos`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({
+          id: values.id,
           nombreProyecto: values.nombreProyecto,
           descripcion: values.descripcion,
-          idUs: values.idUsuario,
         }),
-        headers: {
-          'Content-type': 'aplication/json',
-        },
       });
-
       if (res.ok) {
         router.refresh();
         form.reset();
         setOpen(false);
         toast({
-          title: 'Proyecto creado',
+          title: 'Proyecto actualizado',
         });
       } else {
         setLoading(false);
@@ -80,10 +81,10 @@ export function CreateProyect(props: CreateProyectProps) {
           variant: 'destructive',
           title: 'Oh no!, algo falló',
           description:
-            errorData.message ||
-            'Hubo un problema con crear un proyecto',
+            errorData.message || 'Hubo un problema con crear un proyecto',
         });
       }
+      
     } catch (error) {
       toast({
         variant: 'destructive',
@@ -96,13 +97,10 @@ export function CreateProyect(props: CreateProyectProps) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>{props.children}</DialogTrigger>
+      <DialogTrigger asChild>{props.trigger}</DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Crear nuevo</DialogTitle>
-          <DialogDescription>
-            Agrega un nuevo proyecto para dar seguimiento.
-          </DialogDescription>
+          <DialogTitle>Actulizar proyecto</DialogTitle>
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -117,7 +115,7 @@ export function CreateProyect(props: CreateProyectProps) {
                       <Input
                         {...field}
                         autoComplete="off"
-                        placeholder="Proyecto patata"
+                        placeholder={props.nombre}
                         disabled={loading}
                       />
                     </FormControl>
@@ -158,7 +156,7 @@ export function CreateProyect(props: CreateProyectProps) {
               >
                 {loading && <ReloadIcon className="w-3 animate-spin" />}
                 <span className="block">
-                  {loading ? 'Creando...' : 'Crear'}
+                  {loading ? 'Actualizando...' : 'Actualizar'}
                 </span>
               </Button>
             </DialogFooter>
