@@ -1,14 +1,14 @@
 import '@/app/ui/global.css'
 import SideNav from "@/app/ui/dashboard/sidenav"
+import { getServerSession } from 'next-auth/next';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 
-export default function DashboardLayout({
+export default async function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-
-  const classLayaUserCap = "pt-4 pb-5 px-6 border-b"
-  const classLayaUser = "font-medium"
+  const session = await getServerSession(authOptions);
 
   return (
     <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
@@ -16,7 +16,7 @@ export default function DashboardLayout({
         <SideNav></SideNav>
       </div>
       <div className="flex-grow md:overflow-y-auto">
-        <div className={classLayaUserCap}><p className={classLayaUser}>autumnLoki</p></div>
+        <div className="pt-4 pb-5 px-6 border-b"><p className="font-medium">{session.user.nombreUsuario}</p></div>
         {children}
         </div>
     </div>  
