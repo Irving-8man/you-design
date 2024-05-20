@@ -33,6 +33,8 @@ Con YouDesign, se espera impulsar a los programadores a adoptar prácticas de di
 
 Este diseño ilustra la interacción entre el actor y casos de uso, resaltando cómo el usuario interactúa con la aplicación web.
 
+![Demostración del diseño](https://github.com/Irving-8man/you-design/blob/main/public/UseCase_Diagram0_bueno.jpg)
+
 
 ## Arquitectura Utilizada
 
@@ -40,12 +42,61 @@ Este diseño ilustra la interacción entre el actor y casos de uso, resaltando c
 4.1 Diagrama de despliegue
  Este diseño ilustra la interacción entre el cliente, el servidor web que alberga la aplicación y la base de datos. Desplegando la aplicación con una arquitectura de tipo monolito con el framework full-stack de React, Nextjs. Ofreciendo los React Server Componentes para renderizado del lado del servidor y la exposición de endpoints para una implementar  la arquitectura REST para manejar solicitudes del lado del cliente. Esto ofrece los beneficios de consultar la base de datos y renderizar de inmediato al cliente. El servicio de base de datos utilizado es Turso, que utiliza SQLite en el Edge para almacenar y recuperar datos con una latencia muy baja.
 
+![Demostración del diseño](https://github.com/Irving-8man/you-design/blob/main/public/diagramaDespliegue.png)
+
 ## Vistas del proyecto
-   
+
+- Página principal
+![Demostración del diseño](https://github.com/Irving-8man/you-design/blob/main/public/home-web.png)
+
+- Inicio de sesión 
+![Demostración del diseño](https://github.com/Irving-8man/you-design/blob/main/public/login-web.png)
+
+- Registro de usuario
+![Demostración del diseño](https://github.com/Irving-8man/you-design/blob/main/public/registrar-web.png)
+
+- Dashboard de gestión de proyectos
+![Demostración del diseño](https://github.com/Irving-8man/you-design/blob/main/public/dashboar-web.png)
+
+- Página de ajustes de perfil
+![Demostración del diseño](https://github.com/Irving-8man/you-design/blob/main/public/ajustes-cuenta-web.png)
+
+- Creación de proyecto
+![Demostración del diseño](https://github.com/Irving-8man/you-design/blob/main/public/crear-proyecto-web.png)
+
+- Se actualiza la página con los proyectos creados recientemente 
+![Demostración del diseño](https://github.com/Irving-8man/you-design/blob/main/public/proyectos-creados-web.png)
+
+- Venta para la actualización del  proyecto
+![Demostración del diseño](https://github.com/Irving-8man/you-design/blob/main/public/update-proyecto-web.png)
+
+- Página principal de edición del proyecto
+![Demostración del diseño](https://github.com/Irving-8man/you-design/blob/main/public/home-proyecto-web.png)
+
+- Gestión de tipografía del proyecto 
+![Demostración del diseño](https://github.com/Irving-8man/you-design/blob/main/public/proyecto-web-tipografia.png)
+
+- Consulta de recomendación tipográfica basada en Material UI
+![Demostración del diseño](https://github.com/Irving-8man/you-design/blob/main/public/proyecto-web-tipografia-recomendaciones.png)
+
+- Gestión de paleta de colores y verificación con parámetros de la WCAG 
+![Demostración del diseño](https://github.com/Irving-8man/you-design/blob/main/public/proyecto-web-colores.png)
+
+- Gestión de la  accesibilidad del proyecto
+![Demostración del diseño](https://github.com/Irving-8man/you-design/blob/main/public/proyecto-web-accesibilidad.png)
+  
 __Casos de uso en acción:__
 1. Comprobando las áreas de gestión del proyecto
 
 ![Demostración del diseño](https://github.com/Irving-8man/you-design/raw/main/public/final.gif)
+
+2. Completando la checklist de accesibilidad
+
+![Demostración del diseño](https://github.com/Irving-8man/you-design/blob/main/public/targests-select.gif)
+   
+3. Comprobando el contraste de la paleta de colores
+
+![Demostración del diseño](https://github.com/Irving-8man/you-design/blob/main/public/colorCheck.gif) 
 
 ## Conclusiones
 
