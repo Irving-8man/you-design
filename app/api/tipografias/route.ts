@@ -7,7 +7,7 @@ export async function GET() {
 
   try {
     const res = await fetch(
-      `${GOOGLE_FONTS_API_URL}?fields=items(family)&key=${KEY}1`,
+      `${GOOGLE_FONTS_API_URL}?fields=items(family)&key=${KEY}`,
     );
     if (!res.ok) {
       throw new Error('Fallo al obtener las fuentes de Google');

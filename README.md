@@ -1,14 +1,31 @@
-## YouDesign
+# YouDesign 🎨🕶
+<div aling="center">
+
+![Turso Badge](https://img.shields.io/badge/Turso-4FF8D2?logo=turso&logoColor=000&style=flat)
+
+![Next.js Badge](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=whitee)
+
+</div>
+
+Tecnologias utilizadas:
+- [**Next.js 14 App Router**](https://nextjs.org/) 
+- [**Auth.js v4**](https://authjs.dev/) 
+- [**Prisma**](https://prisma.io) 
+- [**Turso**](https://turso.tech/) + [**libSQL**](https://github.com/tursodatabase/libsql) - SQLite para producón.
+- [**TailwindCSS**](https://tailwindcss.com) + [**shadcn/ui**](https://ui.shadcn.com) & [**Radix Primitives**](https://www.radix-ui.com) - Design System.
+- [**Prettier**](https://prettier.io) with [**prettier-plugin-tailwindcss**](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) - Code Formatter.
+
+
 
 Integrantes:
-- Irving Geyler Cupul Uc
-- Joar Honorio Ruiz Peraza
-- Didier Andrey Tec Esquivel
+- 🐉 Irving Geyler Cupul Uc
+- 👾 Joar Honorio Ruiz Peraza
+- 🐹 Didier Andrey Tec Esquivel
 
 
 
 Asesor:
-- Dr. José Luis López Martínez 
+- 👩‍💻 Dr. José Luis López Martínez 
 
 Fecha de entrega
 - 20/05/2024
@@ -109,6 +126,5 @@ Los requisitos funcionales definidos aseguran que la aplicación sea completa y 
 La arquitectura cliente-servidor empleada, con una base de datos eficiente y una aplicación desarrollada en Next.js y alojada en Vercel, asegura que youDesign sea escalable y robusta. Esto garantiza que los programadores puedan confiar en una herramienta que no solo satisface las demandas actuales sino que también está preparada para adaptarse a futuras necesidades.
 
 
-
-
-
+## Planes a futuros
+**YouDesign** como aplicación de escritorio con [**Tauri**](https://tauri.app/) hecha en Rust.  

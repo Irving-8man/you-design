@@ -13,6 +13,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "types": ["next-auth"],
     "plugins": [
       {
         "name": "next"
@@ -27,8 +28,6 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/lib/placeholder-data.js",
-    "scripts/seed.js"
   ],
   "exclude": ["node_modules"]
 }
