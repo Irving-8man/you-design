@@ -45,7 +45,7 @@ Este diseño ilustra la interacción entre el actor y casos de uso, resaltando c
 __Casos de uso en acción:__
 1. Comprobando las áreas de gestión del proyecto
 
-https://github.com/Irving-8man/you-design/blob/main/public/final.gif
+!(https://github.com/Irving-8man/you-design/blob/main/public/final.gif)
 
 ## Conclusiones
 
