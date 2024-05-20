@@ -1,7 +1,6 @@
 'use server';
 
 import db from '@/lib/db';
-import { signOut } from 'next-auth/react';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 

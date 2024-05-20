@@ -7,12 +7,13 @@ import {
 } from '@/app/components/card';
 import EditProyect from './edit-proyect';
 import DeleteProyect from './delete-proyect';
+import EdicionProyect from './Link-edicion';
 
 interface ProyectProps {
   idProyect: string;
   nombre: string;
   descripcion: string;
-  idUser:string;
+  idUser: string;
 }
 
 export default function CardProyect(props: ProyectProps) {
@@ -80,20 +81,27 @@ export default function CardProyect(props: ProyectProps) {
         </CardContent>
       </div>
       <CardFooter className="flex justify-end">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="h-5 w-5"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m8.25 4.5 7.5 7.5-7.5 7.5"
-          />
-        </svg>
+        <EdicionProyect
+          trigger={
+            <button className="transition-opacity hover:opacity-75">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="h-5 w-5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </button>
+          }
+          idProyect={props.idProyect}
+        />
       </CardFooter>
     </Card>
   );

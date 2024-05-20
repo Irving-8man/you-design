@@ -12,7 +12,6 @@ import {
 import CardProyect from '@/app/ui/dashboard/card-proy';
 import { CreateProyect } from '@/app/ui/dashboard/create-proyect';
 
-
 export default async function ProyectosPage() {
   //recuperacion de sesion y sus proyectos
   const session = await getServerSession(authOptions);
@@ -86,17 +85,25 @@ export default async function ProyectosPage() {
         </div>
       </div>
       {/**Seccion de proyectos */}
-      <section className="nowrap my-[50px] grid min-h-[325px] grid-cols-3 ">
-        {data?.proyectos.map((proyecto) => (
-          <CardProyect
-            key={proyecto.id}
-            idProyect={proyecto.id}
-            nombre={proyecto.nombreProyecto}
-            descripcion={proyecto.descripcion}
-            idUser={session.user.id}
-          />
-        ))}
-      </section>
+      {data?.proyectos.length === 0 ? (
+        <section className="flex flex-col nowrap justify-center min-h-[440px] items-center">
+          <div className="min-w-[550px] min-h-[300px] border-dotted border-[4px] flex flex-col items-center justify-center">
+            <p className="text-center font-bold text-[20px]">No tiene proyectos creados</p> 
+          </div>
+        </section>
+      ) : (
+        <section className="nowrap my-[50px] grid min-h-[325px] grid-cols-3 ">
+          {data?.proyectos.map((proyecto) => (
+            <CardProyect
+              key={proyecto.id}
+              idProyect={proyecto.id}
+              nombre={proyecto.nombreProyecto}
+              descripcion={proyecto.descripcion}
+              idUser={session.user.id}
+            />
+          ))}
+        </section>
+      )}
       <Footer />
     </div>
   );

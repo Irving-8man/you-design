@@ -1,6 +1,5 @@
 import { Card, CardContent } from '@/app/components/card';
 import { Button } from '@/app/components/button';
-import Link from 'next/link';
 import Footer from '@/app/ui/layout/footer-index';
 import UpdateUser from '@/app/ui/dashboard/update-user';
 import { getServerSession } from 'next-auth/next';
