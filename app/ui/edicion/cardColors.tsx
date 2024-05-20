@@ -7,17 +7,11 @@ import {
 } from '@/app/components/card';
 import { SwatchIcon } from '@heroicons/react/24/outline';
 
-interface AccessProps {
-  passSucees: number;
+interface PaletaProps {
+  colors: string[];
 }
 
-export default function CardColors() {
-  const colores = [
-    { id: 1, colorHex: '#14B8A6'},
-    { id: 2, colorHex: '#FB7185'},
-    { id: 3, colorHex: '#133074'},
-    { id: 4, colorHex: '#0E1753'}
-  ];
+export default function CardColors(props:PaletaProps) {
 
   return (
     <Card className="flex max-h-[230px] min-h-[210px] w-[300px] flex-col justify-between">
@@ -28,11 +22,11 @@ export default function CardColors() {
         </CardHeader>
         <CardContent>
           <ul>
-            {colores.map((color) => (
-              <li key={color.id}>
+            {props.colors.map((color,idx) => (
+              <li key={idx}>
                 <div className="flex flex-row justify-between">
-                  <p className="font-medium text-[16px]">{color.colorHex}</p>
-                  <div className='w-4 h-4' style={{ backgroundColor: color.colorHex ,border: '1px solid #71717a'}}></div>
+                  <p className="font-medium text-[16px]">{color}</p>
+                  <div className='w-4 h-4' style={{ backgroundColor: color,border: '1px solid #71717a'}}></div>
                 </div>
               </li>
             ))}

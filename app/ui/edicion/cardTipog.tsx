@@ -7,11 +7,11 @@ import {
 } from '@/app/components/card';
 import { LanguageIcon} from '@heroicons/react/24/outline';
 
+interface TipoProps {
+  tipografia:string;
+}
 
-
-export default function CardTipog() {
-  const tipografia = 'Roboto';
-
+export default function CardTipog(props:TipoProps) {
   return (
     <Card className="flex max-h-[230px] min-h-[210px] w-[300px] flex-col justify-between">
       <div>
@@ -20,7 +20,7 @@ export default function CardTipog() {
           <LanguageIcon className="w-6 stroke-zinc-500" />
         </CardHeader>
         <CardContent>
-              <p className="font-medium text-[40px]">{tipografia}</p>
+              <p className="font-medium text-[40px]">{props.tipografia}</p>
         </CardContent>
       </div>
       <CardFooter>

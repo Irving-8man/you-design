@@ -31,7 +31,6 @@ export default function CardAcces({porcen}:AccessProps) {
       </div>
       <CardFooter>
         <p className="text-[14px] text-zinc-700">Accesibilidad alcanzada en el proyecto</p>
-        
       </CardFooter>
     </Card>
   );
