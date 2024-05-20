@@ -39,6 +39,7 @@ export default function BaseTipos(props: TipoProps) {
     Ratio: props.Ratio,
     interlineado: props.interlineado,
   });
+  const [loading, setLoading] = useState<boolean>(false);
 
   const { toast } = useToast();
 
@@ -87,7 +88,6 @@ export default function BaseTipos(props: TipoProps) {
   const TIPOGRAFIAS = getAPITipografias();
   const LISTRATIOS = getListRatios();
   const TIENETIPOGRA = TIPOGRAFIAS?.length > 0;
-
   return (
     <div className="px-6 pb-8 pt-8">
       <section>

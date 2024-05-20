@@ -14,3 +14,12 @@ export function arrayToString(input: string[]): string {
 export function objectKeysToString(input: { [key: string]: any }): string {
   return Object.keys(input).join(', ');
 }
+
+// Para colores
+export function generateColorPalette(paletteString: string): { id: number, colorHex: string }[] {
+  const colors = paletteString.split(',').map(color => color.trim().toLowerCase());
+  return colors.map((colorHex, index) => ({
+    id: index + 1,
+    colorHex,
+  }));
+}

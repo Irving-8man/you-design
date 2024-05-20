@@ -38,7 +38,7 @@ model Proyecto {
 
 model PaletaColor {
   id         String   @id @default(cuid())
-  paleta     String   @default("#EFEEE9,#EEC7A,#00EEFF,#800080")
+  paleta     String   @default("#efeee9,#eec7a,#00eeff,#800080")
   proyecto   Proyecto @relation(fields: [idProyecto], references: [id], onDelete: Cascade)
   idProyecto String   @unique
 
@@ -64,17 +64,4 @@ model Tipografia {
   idProyecto   String   @unique
 
   @@index([idProyecto])
-}
-
-model Pautas {
-  id         String      @id
-  nombre     String
-  nivelPauta NivelPautas @relation(fields: [nivel], references: [id], onDelete: Cascade)
-  nivel      String      @unique
-}
-
-model NivelPautas {
-  id     String  @id @default(cuid())
-  nivel  String  @unique
-  pautas Pautas?
 }
