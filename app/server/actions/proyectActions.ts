@@ -14,14 +14,6 @@ export async function CreateTask(formData: FormData) {
     return;
   }
 
-  const newTask = await db.proyecto.create({
-    data: {
-      nombre: nombre,
-      descripcion: descripcion,
-    },
-  });
-
-  console.log(newTask);
   redirect('/dashboard/proyectos');
 }
 
@@ -32,12 +24,6 @@ export async function removeTask(formData: FormData) {
   if (!taskId) {
     return;
   }
-
-  await prisma.task.delete({
-    where: {
-      id: parseInt(taskId),
-    },
-  });
 
   revalidatePath('/dashboard/proyectos');
 }
@@ -51,15 +37,7 @@ export async function updateTask(formData: FormData) {
     return;
   }
 
-  await prisma.task.update({
-    where: {
-      id: parseInt(id),
-    },
-    data: {
-      nombre: nombre,
-      descripcion: descripcion,
-    },
-  });
+
 
   redirect('/dashboard/proyectos');
 }

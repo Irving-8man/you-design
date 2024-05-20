@@ -16,6 +16,7 @@ export default async function ProyectosPage() {
   //recuperacion de sesion y sus proyectos
   const session = await getServerSession(authOptions);
   const data = await getLimitAndNumProyectsByUser();
+  if (!session) return null;
 
   return (
     <div className="px-6 pt-8">
