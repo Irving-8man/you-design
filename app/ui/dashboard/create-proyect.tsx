@@ -131,7 +131,7 @@ export function CreateProyect(props: CreateProyectProps) {
                 name="descripcion"
                 render={({ field }) => (
                   <FormItem className="nowrap flex flex-col items-start justify-start gap-2">
-                    <FormLabel>Description (opcional):</FormLabel>
+                    <FormLabel>Descripción (opcional):</FormLabel>
                     <FormControl>
                       <Textarea
                         {...field}

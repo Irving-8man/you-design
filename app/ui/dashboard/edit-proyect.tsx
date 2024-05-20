@@ -128,7 +128,7 @@ export default function EditProyect(props: EditProyectProps) {
                 name="descripcion"
                 render={({ field }) => (
                   <FormItem className="nowrap flex flex-col items-start justify-start gap-2">
-                    <FormLabel>Description (opcional):</FormLabel>
+                    <FormLabel>Descrición (opcional):</FormLabel>
                     <FormControl>
                       <Textarea
                         {...field}
