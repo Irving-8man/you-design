@@ -3,17 +3,13 @@
 Integrantes:
 
 Irving Geyler Cupul Uc 
-
 Joar Honorio Ruiz Peraza
-
 Didier Andrey Tec Esquivel
 
 Asesor:
-
 Dr. José Luis López Martínez 
 
 Fecha de entrega
-
 20/05/2024
 
 ## Introducción
