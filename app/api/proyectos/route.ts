@@ -115,7 +115,7 @@ export async function DELETE(request:Request){
       where: { id:data.idProyect, idUsuario: data.idUser },
     });
   
-    console.log(req);
+    //console.log(req);
     return NextResponse.json({message:result},{ status: 201 });
   } catch (error) {
     if (error instanceof Error) {

@@ -15,7 +15,7 @@ import { Input } from '@/app/components/input';
 import { Button } from '@/app/components/button';
 import { useToast } from '@/app/components/use-toast';
 import { ReloadIcon } from '@radix-ui/react-icons';
-import { deleteUser } from '@/app/server/actions/user-actions';
+import { deleteUser } from '@/app/server/actions/userActions';
 import { signOut } from 'next-auth/react';
 
 interface DeleteUserProps {

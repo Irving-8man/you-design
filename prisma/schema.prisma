@@ -38,7 +38,7 @@ model Proyecto {
 
 model PaletaColor {
   id         String   @id @default(cuid())
-  paleta     String   @default("")
+  paleta     String   @default("#EFEEE9,#EEC7A,#00EEFF,#800080")
   proyecto   Proyecto @relation(fields: [idProyecto], references: [id], onDelete: Cascade)
   idProyecto String   @unique
 

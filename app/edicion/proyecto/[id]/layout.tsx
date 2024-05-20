@@ -8,7 +8,7 @@ interface Layaprops {
   };
 }
 
-export default function EdicionLayout({ children, params }: Layaprops) {
+export default async function EdicionLayout({ children, params }: Layaprops) {
   const classLayaUserCap =
     'pt-4 pb-5 px-6 border-b flex justify-start gap-[50px]';
   const classLayaUser = 'font-medium';
