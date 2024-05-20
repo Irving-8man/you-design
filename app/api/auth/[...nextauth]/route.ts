@@ -1,6 +1,6 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import db from '@/lib/db';
+import {db} from '@/lib/db';
 import { verificarPassword } from '@/lib/bycript';
 
 export const authOptions = {

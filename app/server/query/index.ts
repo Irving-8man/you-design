@@ -1,5 +1,5 @@
 import { cache } from 'react';
-import db from '@/lib/db';
+import {db} from '@/lib/db';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import db from '@/lib/db';
+import {db} from '@/lib/db';
 import { hashPass } from '@/lib/bycript';
 import { usuarioAPISchema } from '@/lib/apisZod';
 
