@@ -11,9 +11,9 @@ Tecnologias utilizadas:
 - [**Next.js 14 App Router**](https://nextjs.org/) 
 - [**Auth.js v4**](https://authjs.dev/) 
 - [**Prisma**](https://prisma.io) 
-- [**Turso**](https://turso.tech/) + [**libSQL**](https://github.com/tursodatabase/libsql) - SQLite para producón.
+- [**Turso**](https://turso.tech/) + [**libSQL**](https://github.com/tursodatabase/libsql) - SQLite para producción.
 - [**TailwindCSS**](https://tailwindcss.com) + [**shadcn/ui**](https://ui.shadcn.com) & [**Radix Primitives**](https://www.radix-ui.com) - Design System.
-- [**Prettier**](https://prettier.io) with [**prettier-plugin-tailwindcss**](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) - Code Formatter.
+- [**Prettier**](https://prettier.io) con [**prettier-plugin-tailwindcss**](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) - Formateador de código.
 
 
 
