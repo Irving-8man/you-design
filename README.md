@@ -42,6 +42,9 @@ Este diseño ilustra la interacción entre el actor y casos de uso, resaltando c
 
 ## Vistas del proyecto
    
+__Casos de uso en acción:__
+1. Comprobando las áreas de gestión del proyecto
+!final.gif
 
 ## Conclusiones
 
