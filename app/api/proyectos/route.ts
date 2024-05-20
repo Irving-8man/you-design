@@ -40,7 +40,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const nuevoProyecto = await db.proyecto.create({
+    await db.proyecto.create({
       data: {
         nombreProyecto: data.nombreProyecto,
         descripcion: data.descripcion,
@@ -57,7 +57,7 @@ export async function POST(request: Request) {
       },
     });
 
-    console.log(nuevoProyecto);
+    //console.log(nuevoProyecto);
     return NextResponse.json({ status: 201 });
   } catch (error) {
     if (error instanceof Error) {
@@ -96,7 +96,7 @@ export async function PUT(request: Request) {
       },
     });
 
-    console.log(req);
+    //console.log(req);
     return NextResponse.json({ status: 201 });
   } catch (error) {
     if (error instanceof Error) {
@@ -116,7 +116,7 @@ export async function DELETE(request:Request){
     });
   
     console.log(req);
-    return NextResponse.json({ status: 201 });
+    return NextResponse.json({message:result},{ status: 201 });
   } catch (error) {
     if (error instanceof Error) {
       return NextResponse.json({ message: error.message }, { status: 500 });

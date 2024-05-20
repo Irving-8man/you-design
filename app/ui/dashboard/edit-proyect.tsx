@@ -99,7 +99,7 @@ export default function EditProyect(props: EditProyectProps) {
       <DialogTrigger asChild>{props.trigger}</DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Actulizar proyecto</DialogTitle>
+          <DialogTitle>Actualizar proyecto</DialogTitle>
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

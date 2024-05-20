@@ -12,15 +12,10 @@ import {
 import CardProyect from '@/app/ui/dashboard/card-proy';
 import { CreateProyect } from '@/app/ui/dashboard/create-proyect';
 
+
 export default async function ProyectosPage() {
+  //recuperacion de sesion y sus proyectos
   const session = await getServerSession(authOptions);
-
-  const LISTPROYECTOS = [
-    { id: 1, nombre: 'ARETEO', descripcion: 'Uno proyecto mas1' },
-    { id: 2, nombre: 'CRESPO', descripcion: 'Uno proyecto mas2' },
-    { id: 3, nombre: 'SSASA', descripcion: 'Uno proyecto mas2' },
-  ];
-
   const data = await getLimitAndNumProyectsByUser();
 
   return (

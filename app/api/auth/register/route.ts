@@ -36,8 +36,6 @@ export async function POST(request: Request) {
       },
     });
 
-    const { password: _, ...user } = nuevoUsuario;
-
     return NextResponse.json({ status: 201 })
   } catch (error) {
     if (error instanceof Error) {

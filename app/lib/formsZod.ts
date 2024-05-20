@@ -22,13 +22,11 @@ export const formLogin = z.object({
 
 
 export const formSchemaAjustes = z.object({
+  id: z.string(),
   nombreUsuario: z.string().min(8, {
     message: "Faltan caracteres.",
   }),
   email: z.string().email({ message: "Invalido email." }),
-  password: z.string().min(8, {
-    message: "Mínimo 8 caracteres.",
-  }),
 });
 
 

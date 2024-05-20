@@ -43,3 +43,13 @@ export const DeleteProyectSchema = z.object({
   idProyect: z.string().min(1, { message: "Proyecto querido." }),
   idUser: z.string(),
 });
+
+
+/***Verificacion de cambios en cuenta */
+export const formSchemaAjustes = z.object({
+  id: z.string(),
+  nombreUsuario: z.string().min(8, {
+    message: "Faltan caracteres.",
+  }),
+  email: z.string().email({ message: "Invalido email." }),
+});
